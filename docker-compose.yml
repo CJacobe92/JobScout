@@ -1,0 +1,11 @@
+services:
+  jobscout.api:
+    image: ${DOCKER_REGISTRY-}jobscoutapi
+    build:
+      context: src/JobScout.API
+      dockerfile: Dockerfile
+    networks:
+      - app
+
+networks:
+  app: {}
