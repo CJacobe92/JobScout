@@ -14,44 +14,49 @@ namespace JobScout.Domain.Models
         public string LastName { get; private set; }
         public string Email { get; private set; }
         public string UserName { get; private set; }
-        public string Password { get; private set; }
-        public string? RefreshToken { get; private set; }
-        public DateTime? RefreshTokenExpiry { get; private set; }
+        public string? Password { get; private set; }
+        public DateTime? CreatedAt { get; private set; }
+        public DateTime? UpdatedAt { get; private set; }
 
+        public Guid TenantId { get; private set; }
+
+        //Request data model
         public TenantUser(
           string firstName,
           string lastName,
           string email,
           string password,
-          string? refreshToken,
-          DateTime? refreshTokenExpiry)
+          Guid tenantId)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             UserName = email;
             Password = password;
-            RefreshToken = refreshToken;
-            RefreshTokenExpiry = refreshTokenExpiry;
+            TenantId = tenantId;
+            CreatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
         }
 
+        //Response data model
         public TenantUser(
             Guid id,
             string firstName,
             string lastName,
             string email,
-            string password,
-            string? refreshToken,
-            DateTime? refreshTokenExpiry)
+            string username,
+            Guid tenantId,
+            DateTime createdAt,
+            DateTime updateAt)
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
-            UserName = email;
-            Password = password;
-            RefreshToken = refreshToken;
-            RefreshTokenExpiry = refreshTokenExpiry;
+            UserName = username;
+            TenantId = tenantId;
+            CreatedAt = createdAt;
+            UpdatedAt = updateAt;
         }
     }
 }

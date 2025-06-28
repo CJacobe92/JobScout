@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using JobScout.AppService.Common;
 
@@ -13,20 +14,26 @@ namespace JobScout.API.Common
         protected readonly IMapper _mapper = mapper;
 
         //Gets the incoming DTO via T1 then maps it to a commands via Auto mapper and returns the result via T3
-        protected async Task<IActionResult> Handle<T1, T2, T3>(dynamic dto) {
-            var queryOrCommand = _mapper.Map<T2>(dto);
-
-            return await Handle<T3>(queryOrCommand);
+        protected async Task<IActionResult> Handle<TDto, TCommand, TResponse>(TDto dto)
+            where TCommand : IRequest<TResponse>
+        {
+            var queryOrCommand = _mapper.Map<TCommand>(dto);
+            return await Handle(queryOrCommand);
         }
 
-        protected async Task<IActionResult> Handle<T>(dynamic queryOrCommand){
-            if (queryOrCommand is null){
+        protected async Task<IActionResult> Handle<T>(IRequest<T> queryOrCommand)
+        {
+
+            if (queryOrCommand is null)
+            {
+
                 return BadRequest();
             }
 
             var result = new CommandOrQueryResult<T>();
 
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 try
                 {
                     result.Data = await _mediator.Send(queryOrCommand);
@@ -34,19 +41,22 @@ namespace JobScout.API.Common
                 }
                 catch (Exception ex)
                 {
-
                     result.Messages.Add(ex.Message);
                     throw;
                 }
-            } else {
+            }
+            else
+            {
                 result.Messages = [.. ModelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage)];
             }
 
-            if (result.Success) {
+            if (result.Success)
+            {
                 return Ok(result);
             }
-            else {
-                return BadRequest();
+            else
+            {
+                return BadRequest(result);
             }
         }
 

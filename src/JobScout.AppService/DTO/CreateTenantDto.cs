@@ -30,7 +30,7 @@ namespace JobScout.AppService.DTO
         [Required(ErrorMessage = "Password cannot be null or empty")]
         [MinLength(8, ErrorMessage = "Password cannot be less than 8 characters in length")]
         [StringLength(20, ErrorMessage = "Password cannot exceed 20 characters in length")]
-        [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)",
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).*$",
         ErrorMessage = "Password must include at least one uppercase letter, one lowercase letter, and one digit.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
