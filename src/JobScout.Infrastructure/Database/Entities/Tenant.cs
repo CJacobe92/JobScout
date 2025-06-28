@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations
+using System.ComponentModel.DataAnnotations;
 
-namespace JobScout.Infrastructure.Database.Entities
+namespace JobScout.Infrastructure.Database.Entities;
+
+
+public class Tenant
 {
-    public class Tenant
-    {
-        [Key]
-        public Guid Id { get; set; }
+    [Key]
+    public Guid Id { get; set; }
 
-        [Required, MinLength(1), MaxLength(50)]
-        public string CompanyName { get; set; }
+    [Required]
+    [MaxLength(100)]
+    public string CompanyName { get; set; } = default!;
 
-        [Required]
-        public string ShardKey { get; set; }
+    [Required]
+    [MaxLength(50)]
+    public string ShardKey { get; set; } = default!;
 
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
-
-    }
-
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 }

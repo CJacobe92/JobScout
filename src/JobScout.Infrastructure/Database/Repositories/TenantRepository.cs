@@ -11,7 +11,7 @@ using JobScout.Infrastructure.Database.Mappings;
 
 namespace JobScout.Infrastructure.Database.Repositories
 {
-    public class CoreRepository(CoreDbContext _context): ITenantRepository
+    public class TenantRepository(CoreDbContext _context): ITenantRepository
     {
         private readonly CoreDbContext context = _context;
 
@@ -40,11 +40,13 @@ namespace JobScout.Infrastructure.Database.Repositories
             return entity?.ToDomain();
         }
 
-        public async Task CreateTenant(TenantModel tenantModel)
+        public async Task<Guid> CreateTenant(TenantModel tenantModel)
         {
             var entity = tenantModel.ToEntity();
             await context.AddAsync(entity);
             await context.SaveChangesAsync();
+
+            return entity.Id;
         }
 
         public async Task UpdateTenant(TenantModel tenantModel)

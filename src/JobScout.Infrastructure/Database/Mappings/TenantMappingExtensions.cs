@@ -24,8 +24,8 @@ namespace JobScout.Infrastructure.Database.Mappings
             return new TenantEntity
             {
                 Id = domain.Id,
-                CompanyName = domain.CompanyName?.Value ?? string.Empty,
-                ShardKey = domain.ShardKey.Value,
+                CompanyName = domain.CompanyName,
+                ShardKey = domain.ShardKey,
                 CreatedAt = domain.CreatedAt,
                 UpdatedAt = domain.UpdatedAt
             };
