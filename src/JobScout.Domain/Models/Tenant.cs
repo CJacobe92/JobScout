@@ -1,35 +1,33 @@
-﻿using JobScout.Domain.ValueObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobScout.Domain.Models
-{
-    public class Tenant
-    {   
-        public Guid Id { get; private set; }
-        public CompanyName? CompanyName { get; private set; }
-        public ShardKey ShardKey { get; private set; }
-        public DateTime CreatedAt { get; private set; }
-        public DateTime UpdatedAt { get; private set; }
+namespace JobScout.Domain.Models;
 
-        public Tenant(string companyName, string shardKey)
-        {
-            CompanyName = new CompanyName(companyName);
-            ShardKey = new ShardKey(shardKey);
-            CreatedAt = DateTime.UtcNow;
-            UpdatedAt = DateTime.UtcNow;
-        }
+public class Tenant
+{   
+    public Guid Id { get; private set; }
+    public string CompanyName { get; private set; }
+    public string ShardKey { get; private set; }
+    public DateTime CreatedAt { get; private set; }
+    public DateTime UpdatedAt { get; private set; }
 
-        public Tenant(Guid id, string companyName, string shardKey)
-        {
-            Id = id;
-            CompanyName = new CompanyName(companyName);
-            ShardKey = new ShardKey(shardKey);
-            CreatedAt = DateTime.UtcNow;
-            UpdatedAt = DateTime.UtcNow;
-        }
-    }   
+    public Tenant(string companyName, string shardKey)
+    {
+        CompanyName = companyName;
+        ShardKey = shardKey;
+        CreatedAt = DateTime.UtcNow;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
+    public Tenant(Guid id, string companyName, string shardKey)
+    {
+        Id = id;
+        CompanyName = companyName;
+        ShardKey = shardKey;
+        CreatedAt = DateTime.UtcNow;
+        UpdatedAt = DateTime.UtcNow;
+    }
 }

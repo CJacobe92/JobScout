@@ -11,12 +11,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1-Preview.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\JobScout.AppService\JobScout.AppService.csproj" />
+    <ProjectReference Include="..\JobScout.Core\JobScout.Core.csproj" />
+    <ProjectReference Include="..\JobScout.Domain\JobScout.Domain.csproj" />
+    <ProjectReference Include="..\JobScout.Infrastructure\JobScout.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
