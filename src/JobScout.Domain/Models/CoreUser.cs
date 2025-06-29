@@ -18,8 +18,8 @@ namespace JobScout.Domain.Models
         public DateTime? RefreshTokenExpiry { get; private set; }
 
         public CoreUser(
-          string firstName, 
-          string lastName, 
+          string firstName,
+          string lastName,
           string email,
           string password,
           string? refreshToken,

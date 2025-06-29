@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using JobScout.AppService.Common;
-
+using JobScout.App.Common;
 using AutoMapper;
+using JobScout.Core.Exceptions;
 
 namespace JobScout.API.Common
 {
@@ -12,54 +12,66 @@ namespace JobScout.API.Common
     {
         protected readonly IMediator _mediator = mediator;
         protected readonly IMapper _mapper = mapper;
-
-        //Gets the incoming DTO via T1 then maps it to a commands via Auto mapper and returns the result via T3
-        protected async Task<IActionResult> Handle<TDto, TCommand, TResponse>(TDto dto)
-            where TCommand : IRequest<TResponse>
+        protected async Task<IActionResult> Handle<TDto, TRequest, TResponse>(Guid? id, TDto dto)
+            where TRequest : IRequest<TResponse>
         {
-            var queryOrCommand = _mapper.Map<TCommand>(dto);
+            var queryOrCommand = _mapper.Map<TRequest>(dto);
+
+            if (id.HasValue)
+            {
+                var idProp = typeof(TRequest).GetProperty("Id");
+                if (idProp is not null && idProp.CanWrite)
+                {
+                    idProp.SetValue(queryOrCommand, id.Value);
+                }
+            }
+
             return await Handle(queryOrCommand);
+        }
+
+        protected async Task<IActionResult> Handle<TRequest, TResponse>(Guid id)
+        where TRequest : IRequest<TResponse>, new()
+        {
+            var command = new TRequest();
+
+            var idProp = typeof(TRequest).GetProperty("Id");
+            if (idProp is not null && idProp.CanWrite)
+            {
+                idProp.SetValue(command, id);
+            }
+
+            return await Handle(command);
         }
 
         protected async Task<IActionResult> Handle<T>(IRequest<T> queryOrCommand)
         {
-
-            if (queryOrCommand is null)
-            {
-
-                return BadRequest();
-            }
-
             var result = new CommandOrQueryResult<T>();
-
-            if (ModelState.IsValid)
+            try
             {
-                try
+                if (queryOrCommand is null)
                 {
-                    result.Data = await _mediator.Send(queryOrCommand);
-                    result.Success = true;
+                    return BadRequest();
                 }
-                catch (Exception ex)
-                {
-                    result.Messages.Add(ex.Message);
-                    throw;
-                }
-            }
-            else
-            {
-                result.Messages = [.. ModelState.Values.SelectMany(m => m.Errors).Select(e => e.ErrorMessage)];
-            }
 
-            if (result.Success)
-            {
+                if (!ModelState.IsValid)
+                {
+                    result.Messages = [..ModelState.Values
+                        .SelectMany(m => m.Errors)
+                        .Select(e => e.ErrorMessage)];
+
+                    return BadRequest(result);
+                }
+
+                result.Data = await _mediator.Send(queryOrCommand);
+                result.Success = true;
                 return Ok(result);
             }
-            else
+            catch (ConflictException ex)
             {
-                return BadRequest(result);
+                result.Messages.Add(ex.Message);
+                result.Success = false;
+                return Conflict(result); //409
             }
         }
-
-
     }
 }

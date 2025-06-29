@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace JobScout.Infrastructure.Database.Context;
 
 public class ShardDbContext(DbContextOptions<ShardDbContext> options)
-  : IdentityDbContext<TenantUser, IdentityRole<Guid>, Guid>(options)
+  : IdentityDbContext<TenantUserEntity, IdentityRole<Guid>, Guid>(options)
 {
 
 }

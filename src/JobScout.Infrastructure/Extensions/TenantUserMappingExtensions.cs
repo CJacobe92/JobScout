@@ -1,8 +1,9 @@
 using System;
-using TenantUserModel = JobScout.Domain.Models.TenantUser;
-using TenantUserEntity = JobScout.Infrastructure.Database.Entities.TenantUser;
+using JobScout.Domain.Models;
+using JobScout.Infrastructure.Database.Entities;
 
-namespace JobScout.Infrastructure.Database.Mappings;
+
+namespace JobScout.Infrastructure.Extensions;
 
 public static class TenantUserMappingExtensions
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobScout.AppService.Common
+namespace JobScout.App.Common
 {
     public class CommandOrQueryResult<T>
     {

@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JobScout.AppService\JobScout.AppService.csproj" />
+    <ProjectReference Include="../JobScout.AppService/JobScout.App.csproj" />
     <ProjectReference Include="..\JobScout.Core\JobScout.Core.csproj" />
     <ProjectReference Include="..\JobScout.Domain\JobScout.Domain.csproj" />
     <ProjectReference Include="..\JobScout.Infrastructure\JobScout.Infrastructure.csproj" />

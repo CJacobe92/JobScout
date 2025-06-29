@@ -1,8 +1,8 @@
-﻿using TenantEntity = JobScout.Infrastructure.Database.Entities.Tenant;
-using JobScout.Infrastructure.Database.Entities;
+﻿using JobScout.Infrastructure.Database.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using JobScout.Domain.Contracts;
 
 namespace JobScout.Infrastructure.Database.Context
 {
@@ -15,14 +15,31 @@ namespace JobScout.Infrastructure.Database.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Tenant>()
+            modelBuilder.Entity<TenantEntity>()
                 .HasIndex(t => t.CompanyName)
                 .IsUnique();
 
-            modelBuilder.Entity<Tenant>()
+            modelBuilder.Entity<TenantEntity>()
                 .HasIndex(t => t.ShardKey)
                 .IsUnique();
         }
+
+        public override Task<int> SaveChangesAsync(CancellationToken ct = default)
+        {
+            var now = DateTime.UtcNow;
+
+            foreach (var entry in ChangeTracker.Entries<IAuditableEntity>())
+            {
+                if (entry.State == EntityState.Added)
+                    entry.Entity.CreatedAt = now;
+
+                if (entry.State == EntityState.Modified)
+                    entry.Entity.UpdatedAt = now;
+            }
+
+            return base.SaveChangesAsync(ct);
+        }
+
     };
 
 }

@@ -1,20 +1,13 @@
-﻿using TenantModel = JobScout.Domain.Models.Tenant;
-using JobScout.Domain.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using JobScout.Domain.Contracts;
 using JobScout.Infrastructure.Database.Context;
 using Microsoft.EntityFrameworkCore;
-using JobScout.Infrastructure.Database.Mappings;
+using JobScout.Infrastructure.Extensions;
+using JobScout.Domain.Models;
 
 namespace JobScout.Infrastructure.Database.Repositories
 {
-    public class TenantRepository(CoreDbContext _context): ITenantRepository
+    public class TenantRepository(CoreDbContext context) : ITenantRepository
     {
-        private readonly CoreDbContext context = _context;
-
         public async Task<IEnumerable<TenantModel>> GetAll()
         {
             return (
@@ -40,30 +33,40 @@ namespace JobScout.Infrastructure.Database.Repositories
             return entity?.ToDomain();
         }
 
-        public async Task<Guid> CreateTenant(TenantModel tenantModel)
+        public async Task<TenantModel> CreateTenant(TenantModel tenantModel)
         {
             var entity = tenantModel.ToEntity();
             await context.AddAsync(entity);
             await context.SaveChangesAsync();
 
+            return entity.ToDomain();
+        }
+
+        public async Task<TenantModel?> UpdateTenant(Guid id, TenantModel tenantModel)
+        {
+            var entity = await FindTenantById(id);
+            if (entity is null) return null;
+
+            entity.CompanyName = tenantModel.CompanyName;
+            entity.ShardKey = tenantModel.ShardKey;
+            await context.SaveChangesAsync();
+            return entity.ToDomain();
+        }
+
+        public async Task<Guid?> DeleteTenant(Guid id)
+        {
+            var entity = await FindTenantById(id);
+            if (entity is null) return null;
+
+            context.Tenants.Remove(entity);
+            await context.SaveChangesAsync();
+
             return entity.Id;
         }
 
-        public async Task UpdateTenant(TenantModel tenantModel)
+        private async Task<Entities.TenantEntity?> FindTenantById(Guid id)
         {
-            var entity = tenantModel.ToEntity();
-            context.Tenants.Update(entity);
-            await context.SaveChangesAsync();
-        }
-
-        public async Task DeleteTenant(Guid id)
-        {
-            var tenant = await context.Tenants.FindAsync(id);
-            if (tenant != null)
-            {
-                context.Tenants.Remove(tenant);
-                await context.SaveChangesAsync();
-            }
+            return await context.Tenants.FindAsync(id);
         }
     }
 }

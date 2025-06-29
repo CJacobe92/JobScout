@@ -9,7 +9,7 @@ using JobScout.Domain.Contracts;
 namespace JobScout.Infrastructure.Database.Entities;
 
 
-public class Tenant
+public class TenantEntity : IAuditableEntity
 {
     [Key]
     public Guid Id { get; set; }
@@ -22,6 +22,7 @@ public class Tenant
     [MaxLength(50)]
     public string ShardKey { get; set; } = default!;
 
-    public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
-    public DateTime? UpdatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
+
 }

@@ -9,11 +9,11 @@ namespace JobScout.Domain.Contracts
 {
     public interface ITenantRepository
     {
-        Task<IEnumerable<Tenant>> GetAll();
-        Task<IEnumerable<Tenant>> GetAllByShardKey(string shard);
-        Task<Tenant?> GetOneById(Guid id);
-        Task<Guid> CreateTenant(Tenant tenant);
-        Task UpdateTenant(Tenant tenant);
-        Task DeleteTenant(Guid id);
+        Task<IEnumerable<TenantModel>> GetAll();
+        Task<IEnumerable<TenantModel>> GetAllByShardKey(string shard);
+        Task<TenantModel?> GetOneById(Guid id);
+        Task<TenantModel> CreateTenant(TenantModel tenant);
+        Task<TenantModel?> UpdateTenant(Guid id, TenantModel tenant);
+        Task<Guid?> DeleteTenant(Guid id);
     }
 }

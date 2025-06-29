@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobScout.AppService.Utilities;
+namespace JobScout.Core.Utilities;
 
 public static class ShardKeyGenerator
 {
@@ -17,7 +17,7 @@ public static class ShardKeyGenerator
         var prefix = companyName.Trim().ToLowerInvariant()[0];
 
         // Hash example for more spread (or use CRC32, MurmurHash, etc.)
-        var hash = Math.Abs(companyName.GetHashCode()) % 3; // assumes 3 shards: 0, 1, 2
+        var hash = Math.Abs(companyName.GetHashCode()) % 2; // assumes 3 shards: 0, 1, 2
 
         return $"shard0{hash}";
     }

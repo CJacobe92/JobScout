@@ -1,12 +1,12 @@
-﻿using TenantModel = JobScout.Domain.Models.Tenant;
-using TenantEntity = JobScout.Infrastructure.Database.Entities.Tenant;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JobScout.Domain.Models;
+using JobScout.Infrastructure.Database.Entities;
 
-namespace JobScout.Infrastructure.Database.Mappings
+namespace JobScout.Infrastructure.Extensions
 {
     public static class TenantMappingExtensions
     {
@@ -26,8 +26,6 @@ namespace JobScout.Infrastructure.Database.Mappings
                 Id = domain.Id,
                 CompanyName = domain.CompanyName,
                 ShardKey = domain.ShardKey,
-                CreatedAt = domain.CreatedAt,
-                UpdatedAt = domain.UpdatedAt
             };
         }
     }
