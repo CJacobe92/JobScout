@@ -12,17 +12,15 @@ using Microsoft.AspNetCore.Identity;
 namespace JobScout.Core.CommandHandlers.Tenant;
 
 public class CreateTenantCommandHandler(
-  IUnitOfWork unitOfWork,
-  ITenantRepository tenantRepository,
+  IUnitOfWork uow,
+  ITenantRepository repo,
   UserManager<TenantUserEntity> userManager
 ) : IRequestHandler<CreateTenantCommand, Guid>
 {
-    private readonly IUnitOfWork _uow = unitOfWork;
-    private readonly ITenantRepository _repo = tenantRepository;
 
     public async Task<Guid> Handle(CreateTenantCommand command, CancellationToken ct)
     {
-        await _uow.BeginTransactionAsync(ct);
+        await uow.BeginTransactionAsync(ct);
 
         try
         {
@@ -31,7 +29,7 @@ public class CreateTenantCommandHandler(
               ShardKeyGenerator.From(command.CompanyName)
             );
 
-            var tenant = await _repo.CreateTenant(domainTenant);
+            var tenant = await repo.CreateTenant(domainTenant, ct);
 
             var domainUser = new TenantUserModel(
                 command.FirstName,
@@ -49,12 +47,12 @@ public class CreateTenantCommandHandler(
                 throw new ConflictException("User creation failed: " +
                     string.Join(", ", result.Errors.Select(e => e.Description)));
 
-            await _uow.CommitAsync(ct);
+            await uow.CommitAsync(ct);
             return tenant.Id;
         }
-        catch (System.Exception)
+        catch (Exception)
         {
-            await _uow.RollbackAsync(ct);
+            await uow.RollbackAsync(ct);
             throw;
         }
     }

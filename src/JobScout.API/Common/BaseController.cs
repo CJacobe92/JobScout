@@ -12,7 +12,7 @@ namespace JobScout.API.Common
     {
         protected readonly IMediator _mediator = mediator;
         protected readonly IMapper _mapper = mapper;
-        protected async Task<IActionResult> Handle<TDto, TRequest, TResponse>(Guid? id, TDto dto)
+        protected async Task<IActionResult> Handle<TDto, TRequest, TResponse>(Guid? id, TDto dto, CancellationToken ct)
             where TRequest : IRequest<TResponse>
         {
             var queryOrCommand = _mapper.Map<TRequest>(dto);
@@ -26,24 +26,24 @@ namespace JobScout.API.Common
                 }
             }
 
-            return await Handle(queryOrCommand);
+            return await Handle(queryOrCommand, ct);
         }
 
-        protected async Task<IActionResult> Handle<TRequest, TResponse>(Guid id)
+        protected async Task<IActionResult> Handle<TRequest, TResponse>(Guid id, CancellationToken ct)
         where TRequest : IRequest<TResponse>, new()
         {
-            var command = new TRequest();
+            var queryOrCommand = new TRequest();
 
             var idProp = typeof(TRequest).GetProperty("Id");
             if (idProp is not null && idProp.CanWrite)
             {
-                idProp.SetValue(command, id);
+                idProp.SetValue(queryOrCommand, id);
             }
 
-            return await Handle(command);
+            return await Handle(queryOrCommand, ct);
         }
 
-        protected async Task<IActionResult> Handle<T>(IRequest<T> queryOrCommand)
+        protected async Task<IActionResult> Handle<T>(IRequest<T> queryOrCommand, CancellationToken ct)
         {
             var result = new CommandOrQueryResult<T>();
             try
@@ -62,7 +62,7 @@ namespace JobScout.API.Common
                     return BadRequest(result);
                 }
 
-                result.Data = await _mediator.Send(queryOrCommand);
+                result.Data = await _mediator.Send(queryOrCommand, ct);
                 result.Success = true;
                 return Ok(result);
             }

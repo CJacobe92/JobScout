@@ -6,6 +6,7 @@ using JobScout.API.Common;
 using JobScout.Core.Commands.Tenant;
 using JobScout.Core.ViewModels;
 using JobScout.Domain.Models;
+using JobScout.Core.Queries.Tenant;
 
 namespace JobScout.API.Controllers
 {
@@ -13,21 +14,27 @@ namespace JobScout.API.Controllers
 
     {
         [HttpPost]
-        public async Task<IActionResult> CreateTenant([FromBody] CreateTenantDto dto)
+        public async Task<IActionResult> CreateTenant([FromBody] CreateTenantDto dto, CancellationToken ct)
         {
-            return await Handle<CreateTenantDto, CreateTenantCommand, Guid>(null, dto);
+            return await Handle<CreateTenantDto, CreateTenantCommand, Guid>(null, dto, ct);
         }
 
         [HttpPatch("{id:guid}")]
-        public async Task<IActionResult> UpdateTenant(Guid id, [FromBody] UpdateTenantDto dto)
+        public async Task<IActionResult> UpdateTenant(Guid id, [FromBody] UpdateTenantDto dto, CancellationToken ct)
         {
-            return await Handle<UpdateTenantDto, UpdateTenantCommand, TenantModel>(id, dto);
+            return await Handle<UpdateTenantDto, UpdateTenantCommand, TenantModel>(id, dto, ct);
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> DeleteTenant(Guid id)
+        public async Task<IActionResult> DeleteTenant(Guid id, CancellationToken ct)
         {
-            return await Handle<DeleteTenantCommand, Guid>(id);
+            return await Handle<DeleteTenantCommand, Guid>(id, ct);
+        }
+
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetTenantById(Guid id, CancellationToken ct)
+        {
+            return await Handle<GetTenantByIdQuery, TenantViewModel>(id, ct);
         }
     }
 }

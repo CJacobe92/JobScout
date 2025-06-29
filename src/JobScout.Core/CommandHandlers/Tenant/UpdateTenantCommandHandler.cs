@@ -33,7 +33,7 @@ public class UpdateTenantCommandHandler(
 
 			return result;
 		}
-		catch (System.Exception)
+		catch (Exception)
 		{
 			await _uow.RollbackAsync(ct);
 			throw;
