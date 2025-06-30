@@ -1,20 +1,19 @@
 using JobScout.Core.Queries.Tenant;
 using JobScout.Core.ViewModels;
 using JobScout.Domain.Contracts;
-using JobScout.Core.Utilities;
 using MediatR;
 
 namespace JobScout.Core.QueryHandlers;
 
-public class GetAllTenantsQueryHandler(
-    ITenantRepository repo
-) : IRequestHandler<GetAllTenantsQuery, IEnumerable<TenantViewModel>>
+public class GetAllTenantsQueryHandler(ITenantReadRepository repo)
+    : IRequestHandler<GetAllTenantsQuery, IEnumerable<TenantViewModel>>
 {
     public async Task<IEnumerable<TenantViewModel>> Handle(GetAllTenantsQuery query, CancellationToken ct)
     {
-        var tenants = await repo.GetAll(ct);
+        var tenants = await repo.GetAllAsync(ct);
 
-        return tenants.ToViewModel();
-
+        return tenants.Select(t =>
+             new TenantViewModel(t.Id, t.CompanyName, t.CreatedAt, t.UpdatedAt)
+        );
     }
 }

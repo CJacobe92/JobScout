@@ -1,5 +1,6 @@
 using System;
 using JobScout.Core.Commands.Tenant;
+using JobScout.Core.Events;
 using JobScout.Core.Utilities;
 using JobScout.Domain.Contracts;
 using JobScout.Domain.Enumerations;
@@ -9,6 +10,7 @@ using MediatR;
 namespace JobScout.Core.CommandHandlers.Tenant;
 
 public class CreateTenantCommandHandler(
+  IMediator mediator,
   ITenantRepository repo
 ) : IRequestHandler<CreateTenantCommand, Guid>
 {
@@ -28,6 +30,7 @@ public class CreateTenantCommandHandler(
         domainTenant,
         ct);
 
+    await mediator.Publish(new TenantCreatedEvent(tenant), ct); // ✅ raises the event
     return tenant.Id;
   }
 }

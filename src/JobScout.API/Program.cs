@@ -4,6 +4,7 @@ using JobScout.Core.Extensions;
 using JobScout.Infrastructure.Database.Context;
 using JobScout.Infrastructure.Database.Entities;
 using JobScout.Infrastructure.Extensions;
+
 using Prometheus;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,12 @@ builder.WebHost.ConfigureKestrel(opts =>
     opts.ListenAnyIP(5135);
 });
 
+var env = builder.Environment;
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+    .AddEnvironmentVariables();
 
 builder.Services.AddApiServices(builder.Configuration);
 builder.Services.AddCoreServices(builder.Configuration);
@@ -26,7 +33,6 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 var useInMemory = builder.Configuration.GetValue<bool>("UseInMemoryDatabase");
 
 var app = builder.Build();
-
 
 if (!app.Environment.IsDevelopment()) // or IsProduction()
 {

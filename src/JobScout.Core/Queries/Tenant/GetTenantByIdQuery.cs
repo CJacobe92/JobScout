@@ -8,8 +8,4 @@ public record GetTenantByIdQuery : IRequest<TenantViewModel>
 {
     public Guid Id { get; set; }
 
-    public GetTenantByIdQuery() { }
-
-    public GetTenantByIdQuery(Guid id) => Id = id;
-
 }

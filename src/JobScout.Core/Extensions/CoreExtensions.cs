@@ -9,7 +9,10 @@ public static class CoreExtensions
   public static IServiceCollection AddCoreServices(this IServiceCollection services, IConfiguration config)
   {
 
-    services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(_ForCoreAssemblyLoadOnly).Assembly));
+    services.AddMediatR(cfg =>
+    {
+      cfg.RegisterServicesFromAssemblies(typeof(_ForCoreAssemblyLoadOnly).Assembly);
+    });
 
     return services;
   }
