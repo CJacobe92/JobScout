@@ -2,41 +2,30 @@ using System;
 using JobScout.Core.Commands.Tenant;
 using JobScout.Core.Exceptions;
 using JobScout.Domain.Contracts;
+using JobScout.Domain.Enumerations;
 using JobScout.Domain.Models;
 using MediatR;
 
 namespace JobScout.Core.CommandHandlers.Tenant;
 
 public class UpdateTenantCommandHandler(
-  IUnitOfWork unitOfWork,
-  ITenantRepository tenantRepository
+  ITenantRepository repo
 ) : IRequestHandler<UpdateTenantCommand, TenantModel>
 {
-	private readonly IUnitOfWork _uow = unitOfWork;
-	private readonly ITenantRepository _repo = tenantRepository;
-
 	public async Task<TenantModel> Handle(UpdateTenantCommand command, CancellationToken ct)
 	{
-		await _uow.BeginTransactionAsync(ct);
 
-		try
-		{
-			var existingTenant = await _repo.GetOneById(command.Id)
-				?? throw new NotFoundException($"Tenant with ID: {command.Id} not found");
+		var tenant = await repo.GetOneById(command.Id, ct)
+			?? throw new NotFoundException($"Tenant with ID: {command.Id}");
 
-			existingTenant.Update(command.CompanyName, command.ShardKey);
+		var companyName = command.CompanyName ?? tenant.CompanyName;
+		var shardKey = command.ShardKey ?? tenant.ShardKey;
 
-			var result = await _repo.UpdateTenant(command.Id, existingTenant)
-				?? throw new ConflictException("Failed to update tenant");
+		tenant.Update(companyName, shardKey);
 
-			await _uow.CommitAsync(ct);
+		var updatedTenant = await repo.UpdateTenant(command.Id, tenant, ct)
+			?? throw new BadRequestException($"Failed to update tenant with ID: {command.Id}");
 
-			return result;
-		}
-		catch (Exception)
-		{
-			await _uow.RollbackAsync(ct);
-			throw;
-		}
+		return updatedTenant;
 	}
 }

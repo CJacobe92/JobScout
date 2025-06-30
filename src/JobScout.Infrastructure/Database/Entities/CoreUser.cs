@@ -11,11 +11,8 @@ namespace JobScout.Infrastructure.Database.Entities
 {
     public class CoreUser : IdentityUser<Guid>, IAuditableEntity
     {
-        [Key]
-        [Required, MaxLength(50)]
         public required string FirstName { get; set; }
 
-        [Required, MaxLength(50)]
         public required string LastName { get; set; }
 
         public string? RefreshToken { get; set; }

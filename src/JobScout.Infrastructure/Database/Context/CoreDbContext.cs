@@ -4,42 +4,43 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using JobScout.Domain.Contracts;
 
-namespace JobScout.Infrastructure.Database.Context
+namespace JobScout.Infrastructure.Database.Context;
+
+public class CoreDbContext : IdentityDbContext<CoreUser, IdentityRole<Guid>, Guid>
 {
-    public class CoreDbContext(DbContextOptions<CoreDbContext> options)
-        : IdentityDbContext<CoreUser, IdentityRole<Guid>, Guid>(options)
+    public CoreDbContext(DbContextOptions<CoreDbContext> options)
+        : base(options) { }
+
+    public DbSet<TenantEntity> Tenants => Set<TenantEntity>();
+
+    protected override void OnModelCreating(ModelBuilder builder)
     {
-        public DbSet<TenantEntity> Tenants { get; set; }
+        base.OnModelCreating(builder);
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        builder.Entity<TenantEntity>()
+            .HasIndex(x => x.CompanyName)
+            .IsUnique();
+
+        builder.Entity<TenantEntity>()
+            .HasIndex(x => x.ShardKey)
+            .IsUnique();
+    }
+
+    public override Task<int> SaveChangesAsync(CancellationToken ct = default)
+    {
+        var now = DateTime.UtcNow;
+
+        foreach (var entry in ChangeTracker.Entries<IAuditableEntity>())
         {
-            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<TenantEntity>()
-                .HasIndex(t => t.CompanyName)
-                .IsUnique();
-
-            modelBuilder.Entity<TenantEntity>()
-                .HasIndex(t => t.ShardKey)
-                .IsUnique();
-        }
-
-        public override Task<int> SaveChangesAsync(CancellationToken ct = default)
-        {
-            var now = DateTime.UtcNow;
-
-            foreach (var entry in ChangeTracker.Entries<IAuditableEntity>())
+            if (entry.State == EntityState.Modified)
             {
-                if (entry.State == EntityState.Added)
-                    entry.Entity.CreatedAt = now;
-
-                if (entry.State == EntityState.Modified)
-                    entry.Entity.UpdatedAt = now;
+                entry.Entity.UpdatedAt = now;
             }
 
-            return base.SaveChangesAsync(ct);
         }
 
-    };
-
+        return base.SaveChangesAsync(ct);
+    }
 }
+

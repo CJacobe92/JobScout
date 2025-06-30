@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobScout.Domain", "src\JobS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobScout.Infrastructure", "src\JobScout.Infrastructure\JobScout.Infrastructure.csproj", "{3E58EBF3-0FB8-4061-AF51-3FB0E0D5929B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobScout.AppService", "src\JobScout.AppService\JobScout.AppService.csproj", "{15227DA6-4396-42C5-82BC-BBF8D9565FE6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobScout.Core", "src\JobScout.Core\JobScout.Core.csproj", "{11982B1D-7421-4242-95F8-84F2A9A3ACB1}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{3E58EBF3-0FB8-4061-AF51-3FB0E0D5929B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E58EBF3-0FB8-4061-AF51-3FB0E0D5929B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E58EBF3-0FB8-4061-AF51-3FB0E0D5929B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15227DA6-4396-42C5-82BC-BBF8D9565FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15227DA6-4396-42C5-82BC-BBF8D9565FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15227DA6-4396-42C5-82BC-BBF8D9565FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15227DA6-4396-42C5-82BC-BBF8D9565FE6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11982B1D-7421-4242-95F8-84F2A9A3ACB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11982B1D-7421-4242-95F8-84F2A9A3ACB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11982B1D-7421-4242-95F8-84F2A9A3ACB1}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JobScout.Domain.Contracts;
 using MediatR;
 
-namespace JobScout.Core.Commands.Tenant
+namespace JobScout.Core.Commands.Tenant;
+
+public class CreateTenantCommand(
+    string companyName,
+    string firstName,
+    string lastName,
+    string email,
+    string password
+) : IRequest<Guid>
 {
-    public record CreateTenantCommand : IRequest<Guid>
-    {
-        public required string CompanyName { get; set; }
-        public required string FirstName { get; set; }
-        public required string LastName { get; set; }
-        public required string Email { get; set; }
-        public required string Password { get; set; }
-    }
+    public string CompanyName { get; set; } = companyName;
+    public string FirstName { get; set; } = firstName;
+    public string LastName { get; set; } = lastName;
+    public string Email { get; set; } = email;
+    public string Password { get; set; } = password;
 }

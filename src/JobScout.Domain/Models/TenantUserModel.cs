@@ -25,9 +25,13 @@ namespace JobScout.Domain.Models
             string lastName,
             string username,
             string email,
+            DateTime createdAt,
+            DateTime updatedAt,
             Guid tenantId) : this(firstName, lastName, username, email, tenantId)
         {
             Id = id;
+            CreatedAt = createdAt;
+            UpdatedAt = updatedAt;
         }
 
         public void Update(

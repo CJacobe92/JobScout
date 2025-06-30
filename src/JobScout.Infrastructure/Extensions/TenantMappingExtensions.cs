@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JobScout.Domain.Enumerations;
 using JobScout.Domain.Models;
 using JobScout.Infrastructure.Database.Entities;
 
@@ -15,7 +16,9 @@ namespace JobScout.Infrastructure.Extensions
             return new TenantModel(
                 entity.Id,
                 entity.CompanyName,
-                entity.ShardKey
+                Enum.Parse<AvailableShards>(entity.ShardKey),
+                entity.CreatedAt,
+                entity.UpdatedAt
             );
         }
 
@@ -25,7 +28,7 @@ namespace JobScout.Infrastructure.Extensions
             {
                 Id = domain.Id,
                 CompanyName = domain.CompanyName,
-                ShardKey = domain.ShardKey,
+                ShardKey = domain.ShardKey.ToString(),
             };
         }
     }

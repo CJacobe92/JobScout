@@ -1,29 +1,36 @@
-# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-# This stage is used when running from VS in fast mode (Default for Debug configuration)
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+# 🧱 Base stage for runtime (Alpine + .NET ASP.NET Core)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
+ARG APP_UID=1001
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true
 USER $APP_UID
 WORKDIR /app
-EXPOSE 5000
-EXPOSE 5000
+EXPOSE 8081
 
-
-# This stage is used to build the service project
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# 🛠️ Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["JobScout.API.csproj", "."]
-RUN dotnet restore "./JobScout.API.csproj"
-COPY . .
-WORKDIR "/src/."
-RUN dotnet build "./JobScout.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# This stage is used to publish the service project to be copied to the final stage
+# Copy csproj and restore dependencies
+COPY ["src/JobScout.API/JobScout.API.csproj", "JobScout.API/"]
+COPY ["src/JobScout.Core/JobScout.Core.csproj", "JobScout.Core/"]
+COPY ["src/JobScout.Domain/JobScout.Domain.csproj", "JobScout.Domain/"]
+COPY ["src/JobScout.Infrastructure/JobScout.Infrastructure.csproj", "JobScout.Infrastructure/"]
+
+RUN dotnet restore "JobScout.API/JobScout.API.csproj"
+
+# Copy source code
+COPY src/ .
+
+WORKDIR /src/JobScout.API
+RUN dotnet build "JobScout.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+# 🧪 Publish stage
 FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./JobScout.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "JobScout.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+# 🚀 Final minimal image
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .

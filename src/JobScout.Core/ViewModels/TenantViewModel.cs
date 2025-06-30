@@ -4,13 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobScout.Core.ViewModels
+namespace JobScout.Core.ViewModels;
+
+public class TenantViewModel(Guid Id, string companyName, DateTime createdAt, DateTime updatedAt)
 {
-    public class TenantViewModel
-    {
-        public Guid Id { get; set; }
-        public required string CompanyName { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-    }
+    public Guid Id { get; set; } = Id;
+    public string CompanyName { get; set; } = companyName ?? throw new ArgumentNullException(nameof(companyName));
+
+    public DateTime CreatedAt { get; set; } = createdAt;
+    public DateTime UpdatedAt { get; set; } = updatedAt;
+
 }
+
+
+

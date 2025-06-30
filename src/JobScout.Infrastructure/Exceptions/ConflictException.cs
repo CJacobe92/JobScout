@@ -1,5 +1,5 @@
 using System;
 
-namespace JobScout.Core.Exceptions;
+namespace JobScout.Infrastructure.Exceptions;
 
 public class ConflictException(string message) : BaseException(message) { }

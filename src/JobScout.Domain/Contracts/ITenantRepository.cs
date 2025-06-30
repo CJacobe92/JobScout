@@ -12,7 +12,13 @@ namespace JobScout.Domain.Contracts
         Task<IEnumerable<TenantModel>> GetAll(CancellationToken ct = default);
         Task<IEnumerable<TenantModel>> GetAllByShardKey(string shard, CancellationToken ct = default);
         Task<TenantModel?> GetOneById(Guid id, CancellationToken ct = default);
-        Task<TenantModel> CreateTenant(TenantModel tenant, CancellationToken ct = default);
+        Task<TenantModel> CreateTenant(
+            string FirstName,
+            string LastName,
+            string Email,
+            string Password,
+            TenantModel tenant,
+            CancellationToken ct = default);
         Task<TenantModel?> UpdateTenant(Guid id, TenantModel tenant, CancellationToken ct = default);
         Task<Guid?> DeleteTenant(Guid id, CancellationToken ct = default);
     }

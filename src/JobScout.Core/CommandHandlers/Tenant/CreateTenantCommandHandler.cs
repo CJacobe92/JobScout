@@ -1,59 +1,33 @@
 using System;
 using JobScout.Core.Commands.Tenant;
-using JobScout.Core.Exceptions;
 using JobScout.Core.Utilities;
 using JobScout.Domain.Contracts;
+using JobScout.Domain.Enumerations;
 using JobScout.Domain.Models;
-using JobScout.Infrastructure.Database.Entities;
-using JobScout.Infrastructure.Extensions;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 
 namespace JobScout.Core.CommandHandlers.Tenant;
 
 public class CreateTenantCommandHandler(
-  IUnitOfWork uow,
-  ITenantRepository repo,
-  UserManager<TenantUserEntity> userManager
+  ITenantRepository repo
 ) : IRequestHandler<CreateTenantCommand, Guid>
 {
 
-    public async Task<Guid> Handle(CreateTenantCommand command, CancellationToken ct)
-    {
-        await uow.BeginTransactionAsync(ct);
+  public async Task<Guid> Handle(CreateTenantCommand command, CancellationToken ct)
+  {
 
-        try
-        {
-            var domainTenant = new TenantModel(
-              command.CompanyName,
-              ShardKeyGenerator.From(command.CompanyName)
-            );
+    var shardKey = Enum.Parse<AvailableShards>(ShardKeyGenerator.From(command.CompanyName));
 
-            var tenant = await repo.CreateTenant(domainTenant, ct);
+    var domainTenant = new TenantModel(command.CompanyName, shardKey);
 
-            var domainUser = new TenantUserModel(
-                command.FirstName,
-                command.LastName,
-                command.Email,
-                command.Email,
-                tenant.Id
-            );
+    var tenant = await repo.CreateTenant(
+        command.FirstName,
+        command.LastName,
+        command.Email,
+        command.Password,
+        domainTenant,
+        ct);
 
-            var entityUser = domainUser.ToEntity();
-
-            var result = await userManager.CreateAsync(entityUser);
-
-            if (!result.Succeeded)
-                throw new ConflictException("User creation failed: " +
-                    string.Join(", ", result.Errors.Select(e => e.Description)));
-
-            await uow.CommitAsync(ct);
-            return tenant.Id;
-        }
-        catch (Exception)
-        {
-            await uow.RollbackAsync(ct);
-            throw;
-        }
-    }
+    return tenant.Id;
+  }
 }
