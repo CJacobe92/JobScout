@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "jd+YbdHvOiUL00VIiB9I2dXsOSqyM5ZjeATIn3/tXZI=",
+  "Source": "JobScout.API",
+  "BasePath": "_content/JobScout.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
