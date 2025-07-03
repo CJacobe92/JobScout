@@ -9,6 +9,6 @@ namespace JobScout.Domain.SeedWork
 {
     public interface IDomainEvent : INotification
     {
-        DateTime OccuredOn { get; }
+        DateTime OccuredOn { get; set; }
     }
 }

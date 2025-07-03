@@ -12,7 +12,7 @@ public static class InfrastructureModule
         string tenantDbConnStr)
     {
         // Domain Event Dispatcher
-        DomainEventModule.Register(services);
+        ExtensionsModule.Register(services);
 
         //Contexts
         DbContextModule.Register(services, appDbConnStr, tenantDbConnStr);

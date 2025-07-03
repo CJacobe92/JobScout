@@ -5,10 +5,11 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace JobScout.Infrastructure.Registrations;
 
-public class DomainEventModule
+public class ExtensionsModule
 {
     public static void Register(IServiceCollection services)
     {
         services.AddScoped<IDomainEventDispatcher, MediatRDomainEventDispatcher>();
+        services.AddHostedService<OutboxDispatcher>();
     }
 }

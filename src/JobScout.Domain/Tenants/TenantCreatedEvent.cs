@@ -1,15 +1,28 @@
-﻿using JobScout.Domain.SeedWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Text.Json.Serialization;
+using JobScout.Domain.SeedWork;
 
-namespace JobScout.Domain.Tenants
+namespace JobScout.Domain.Tenants;
+
+public class TenantCreatedEvent : DomainEventBase
 {
-    public class TenantCreatedEvent(TenantId _tenantId, string _companyName) : DomainEventBase
+    [JsonIgnore]
+    public TenantId TenantId { get; set; }
+
+    [JsonPropertyName("TenantId")]
+    public string TenantIdRaw
     {
-        public TenantId TenantId { get; } = _tenantId;
-        public string CompanyName { get; } = _companyName;
+        get => TenantId.Value.ToString("D");
+        set => TenantId = new TenantId(Guid.Parse(value));
+    }
+
+    public string CompanyName { get; set; }
+
+    public TenantCreatedEvent() { }
+
+    public TenantCreatedEvent(TenantId tenantId, string companyName)
+    {
+        TenantId = tenantId;
+        CompanyName = companyName;
     }
 }

@@ -1,15 +1,15 @@
-﻿using JobScout.Domain.SeedWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.Text.Json.Serialization;
 
 namespace JobScout.Domain.Tenants
 {
-    public record struct TenantId(Guid Value)
+    public readonly record struct TenantId(Guid Value)
     {
         public static TenantId New() => new(Guid.NewGuid());
-        public override readonly string ToString() => Value.ToString();
+
+        public override string ToString() => Value.ToString("D");
+
+        public static TenantId Parse(string raw) =>
+            new(Guid.TryParse(raw, out var g) ? g : throw new FormatException("Invalid GUID"));
     }
 }

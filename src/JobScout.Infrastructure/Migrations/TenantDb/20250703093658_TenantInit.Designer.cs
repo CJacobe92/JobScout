@@ -9,10 +9,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace JobScout.Infrastructure.Migrations
+namespace JobScout.Infrastructure.Migrations.TenantDb
 {
     [DbContext(typeof(TenantDbContext))]
-    [Migration("20250702165534_TenantInit")]
+    [Migration("20250703093658_TenantInit")]
     partial class TenantInit
     {
         /// <inheritdoc />
