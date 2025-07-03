@@ -21,12 +21,11 @@ public class TenantConfiguration : IEntityTypeConfiguration<Tenant>
             value => new TenantId(value)
         );
         builder.Property("CompanyName").HasColumnName("CompanyName");
-        builder.Property("ShardKey").HasColumnName("ShardKey");
+        builder.Property("Slug").HasColumnName("Slug");
         builder.Property("IsActivated").HasColumnName("IsActivated");
         builder.Property("WelcomeEmailSent").HasColumnName("WelcomeEmailSent");
         builder.Property("CreatedAt").HasColumnName("CreatedAt");
         builder.Property("UpdatedAt").HasColumnName("UpdatedAt");
-
     }
 }
 

@@ -72,8 +72,8 @@ public class OutboxDispatcher : BackgroundService
                 }
 
                 await db.SaveChangesAsync(ct);
-                Console.WriteLine($"🕒 Waiting 10s before next dispatch cycle at {DateTime.UtcNow:T}");
-                await Task.Delay(TimeSpan.FromSeconds(10), ct);
+                Console.WriteLine($"🕒 Waiting 30mins before next dispatch cycle at {DateTime.UtcNow:T}");
+                await Task.Delay(TimeSpan.FromMinutes(30), ct);
             }
             catch (Exception ex)
             {

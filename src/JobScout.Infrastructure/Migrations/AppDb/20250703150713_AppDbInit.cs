@@ -4,10 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace JobScout.Infrastructure.Migrations
+namespace JobScout.Infrastructure.Migrations.AppDb
 {
     /// <inheritdoc />
-    public partial class AppInit : Migration
+    public partial class AppDbInit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -78,7 +78,7 @@ namespace JobScout.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     CompanyName = table.Column<string>(type: "text", nullable: false),
-                    ShardKey = table.Column<string>(type: "text", nullable: false),
+                    Slug = table.Column<string>(type: "text", nullable: false),
                     IsActivated = table.Column<bool>(type: "boolean", nullable: false),
                     WelcomeEmailSent = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),

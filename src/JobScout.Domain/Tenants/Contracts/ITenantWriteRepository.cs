@@ -10,7 +10,6 @@ namespace JobScout.Domain.Tenants.Contracts
             string LastName,
             string Email,
             string Password,
-            string ShardKey,
             CancellationToken ct
         );
     }

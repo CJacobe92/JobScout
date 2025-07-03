@@ -8,22 +8,14 @@ public static class InfrastructureModule
 {
     public static void Register(
         IServiceCollection services,
-        string appDbConnStr,
-        string tenantDbConnStr)
+        string appDbConnStr
+        )
     {
         // Domain Event Dispatcher
         ExtensionsModule.Register(services);
 
         //Contexts
-        DbContextModule.Register(services, appDbConnStr, tenantDbConnStr);
-
-        // Repository
-        RepositoryModule.Register(services);
-
-
-
-        // Identity
-        IdentityModule.Register(services);
+        DatabaseModule.Register(services, appDbConnStr);
 
         // Rules
         TenantRulesModule.Register(services);

@@ -10,8 +10,7 @@ namespace JobScout.Application.Tenants.CommandHandlers;
 
 public class CreateTenantCommandHandler(
     ITenantWriteRepository repo,
-    IUniquenessChecker<string> uniquenessChecker,
-    IShardResolver shardResolver
+    IUniquenessChecker<string> uniquenessChecker
     )
     : IRequestHandler<CreateTenantCommand, IResult<Tenant>>
 {
@@ -24,8 +23,6 @@ public class CreateTenantCommandHandler(
         if (await rule.IsBrokenAsync())
             return Result<Tenant>.Failure(rule.Message);
 
-        var shardKey = shardResolver.ResolveFor(command.CompanyName);
-
         ct.ThrowIfCancellationRequested();
 
         var result = await repo.CreateTenantAsync(
@@ -34,7 +31,6 @@ public class CreateTenantCommandHandler(
             command.LastName,
             command.Email,
             command.Password,
-            shardKey,
             ct
         );
 

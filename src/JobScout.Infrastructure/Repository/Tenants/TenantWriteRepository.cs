@@ -6,27 +6,26 @@ using JobScout.Domain.Tenants.Contracts;
 using JobScout.Infrastructure.Database;
 using JobScout.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
-
 using MediatR;
-
 
 namespace JobScout.Infrastructure.Repository.Tenants;
 
 public class TenantWriteRepository(
     AppDbContext context,
     IMediator mediator,
-    UserManager<TenantUser> userManager,
-    IDomainEventDispatcher dispatcher
-) : ITenantWriteRepository
+    IDomainEventDispatcher dispatcher,
+    ISlugResolver slugResolver,
+    TenantProvisioner provisioner
+    ) : ITenantWriteRepository
 {
     private readonly IMediator _mediator = mediator;
+
     public async Task<IResult<Tenant>> CreateTenantAsync(
         string companyName,
         string firstName,
         string lastName,
         string email,
         string password,
-        string shardKey,
         CancellationToken ct
     )
     {
@@ -36,47 +35,26 @@ public class TenantWriteRepository(
 
         try
         {
-            ct.ThrowIfCancellationRequested();
+            // Step 1: Generate slug from company name
+            var configuredSlug = slugResolver.ResolveFor(companyName);
 
-            var newTenant = Tenant.Create(companyName, shardKey);
+            // Step 4: Create domain tenant and user
+            var newTenant = Tenant.Create(companyName, configuredSlug);
+            var newUser = TenantUser.Create(firstName, lastName, email, newTenant.Id);
 
-            var newUser = TenantUser.Create(
-                firstName,
-                lastName,
-                email,
-                newTenant.Id
-            );
+            await provisioner.EnsureSchemaCreatedAsync(newUser, password, configuredSlug, ct);
 
-            ct.ThrowIfCancellationRequested();
-
-            var result = await userManager.CreateAsync(newUser, password);
-
-            if (!result.Succeeded)
-            {
-                var errorMessages = string.Join("; ", result.Errors.Select(e => $"{e.Code}: {e.Description}"));
-                return Result<Tenant>.Failure($"Failed to create tenant. Errors: {errorMessages}");
-            }
-
-
-            ct.ThrowIfCancellationRequested();
-
+            // Step 6: Persist tenant globally
             await context.Tenants.AddAsync(newTenant, ct);
 
-            var tenantCreatedEvent = new TenantCreatedEvent(newTenant.Id, companyName);
-
-            var domainEntities = context.ChangeTracker
-                .Entries()
-                .Where(e => e.Entity is Entity<object> entity && (entity.DomainEvents?.Count > 0))
-                .Select(e => (Entity<object>)e.Entity)
-                .ToList();
-
+            // Step 7: Fire domain events & commit
             await context.SaveChangesAsync(ct);
             await context.DispatchTrackedDomainEventsAsync(dispatcher, ct);
             await trx.CommitAsync(ct);
 
             return Result<Tenant>.Success(newTenant);
         }
-        catch (System.Exception)
+        catch (Exception)
         {
             await trx.RollbackAsync(ct);
             throw;
