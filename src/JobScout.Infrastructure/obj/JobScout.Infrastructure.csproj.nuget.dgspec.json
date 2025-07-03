@@ -71,6 +71,7 @@
             "Microsoft.Extensions.Options": "[8.0.2, )",
             "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "[1.17.0, )",
+            "MongoDB.Driver": "[3.4.0, )",
             "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )"
           },
           "imports": [
@@ -156,6 +157,7 @@
             "Microsoft.Extensions.Options": "[8.0.2, )",
             "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "[1.17.0, )",
+            "MongoDB.Driver": "[3.4.0, )",
             "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )"
           },
           "imports": [
@@ -294,6 +296,11 @@
               "version": "[8.0.0, )",
               "versionCentrallyManaged": true
             },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.0, )",
+              "versionCentrallyManaged": true
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.11, )",
@@ -322,6 +329,7 @@
             "Microsoft.Extensions.Options": "[8.0.2, )",
             "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "[1.17.0, )",
+            "MongoDB.Driver": "[3.4.0, )",
             "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )"
           },
           "imports": [

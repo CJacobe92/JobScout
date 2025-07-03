@@ -42,7 +42,9 @@ public class TenantWriteRepository(
             var newTenant = Tenant.Create(companyName, configuredSlug);
             var newUser = TenantUser.Create(firstName, lastName, email, newTenant.Id);
 
-            await provisioner.EnsureSchemaCreatedAsync(newUser, password, configuredSlug, ct);
+            var tenantId = newTenant.Id.ToString();
+
+            await provisioner.EnsureSchemaCreatedAsync(newUser, password, tenantId, configuredSlug, ct);
 
             // Step 6: Persist tenant globally
             await context.Tenants.AddAsync(newTenant, ct);

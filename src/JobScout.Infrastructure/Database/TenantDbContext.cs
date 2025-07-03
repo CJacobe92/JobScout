@@ -14,7 +14,7 @@ namespace JobScout.Infrastructure.Database
 {
     public class TenantDbContext : IdentityDbContext<TenantUser, IdentityRole<Guid>, Guid>
     {
-        public readonly string _schema;
+
         public TenantDbContext(DbContextOptions<TenantDbContext> options) : base(options)
         {
         }

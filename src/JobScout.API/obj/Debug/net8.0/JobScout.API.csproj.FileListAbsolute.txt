@@ -180,3 +180,9 @@
 /home/cjadmin/Projects/JobScout/src/JobScout.API/obj/Debug/net8.0/JobScout.API.pdb
 /home/cjadmin/Projects/JobScout/src/JobScout.API/obj/Debug/net8.0/JobScout.API.genruntimeconfig.cache
 /home/cjadmin/Projects/JobScout/src/JobScout.API/obj/Debug/net8.0/ref/JobScout.API.dll
+/home/cjadmin/Projects/JobScout/src/JobScout.API/bin/Debug/net8.0/DnsClient.dll
+/home/cjadmin/Projects/JobScout/src/JobScout.API/bin/Debug/net8.0/MongoDB.Bson.dll
+/home/cjadmin/Projects/JobScout/src/JobScout.API/bin/Debug/net8.0/MongoDB.Driver.dll
+/home/cjadmin/Projects/JobScout/src/JobScout.API/bin/Debug/net8.0/SharpCompress.dll
+/home/cjadmin/Projects/JobScout/src/JobScout.API/bin/Debug/net8.0/Snappier.dll
+/home/cjadmin/Projects/JobScout/src/JobScout.API/bin/Debug/net8.0/ZstdSharp.dll

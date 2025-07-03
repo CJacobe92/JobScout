@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6ANthdruQz4I8S2xO2DiBHyshqLCAfdXSoDRx5gsP2FvCsCyECVGd/zyvG35uGWPCF8acmCcJDo796yJwNXv1A==",
+  "dgSpecHash": "nmvAQ/EIucfP7j+8zwBM3v8lcTNeMp9vvBjvcqGEM9xUqLXZHO5S0S+5tYSaec4H6GoOoJlP6cP8i2SG3GrVfA==",
   "success": true,
   "projectFilePath": "/home/cjadmin/Projects/JobScout/src/JobScout.Application/JobScout.Application.csproj",
   "expectedPackageFiles": [

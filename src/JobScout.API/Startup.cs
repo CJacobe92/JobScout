@@ -31,10 +31,11 @@ namespace JobScout.API
         public void ConfigureServices(IServiceCollection services)
         {
             var appDbConnStr = _configuration.GetSection("ConnectionStrings")["AppDb"];
+            var mongoDbConnStr = _configuration.GetSection("MongoDb")["ConnectionString"];
 
             APIModule.Register(services);
             ApplicationModule.Register(services);
-            InfrastructureModule.Register(services, appDbConnStr!);
+            InfrastructureModule.Register(services, appDbConnStr!, mongoDbConnStr);
         }
     }
 }

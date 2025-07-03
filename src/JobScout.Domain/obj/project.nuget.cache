@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LA9jf3xEDZVSRNFNtZAEwyiuVgDICVQx2vcNio6EQvJ3evJAvGEUIn4sHN0xjINke4G1fpGMoibKiM9TOE2vkg==",
+  "dgSpecHash": "9RWrJpX69huLZXnMGX0U4QFs1zLS5UNHGYsHC+lpSYpkEymZz070Qp5OzkoElOG1p5Q88Q4RV2rliRvTYY66mQ==",
   "success": true,
   "projectFilePath": "/home/cjadmin/Projects/JobScout/src/JobScout.Domain/JobScout.Domain.csproj",
   "expectedPackageFiles": [
