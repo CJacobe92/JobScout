@@ -37,7 +37,7 @@ public class TenantMutations
         }
 
         return new CreateTenantOutput(
-            result.Value!.Id.ToString(),
+            result.Value!.Id.Value.ToString(),
             result.Value.CompanyName,
             result.Value.CreatedAt.ToString("O"),
             result.Value.UpdatedAt.ToString("O")

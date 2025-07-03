@@ -7,25 +7,8 @@ using System.Threading.Tasks;
 
 namespace JobScout.Domain.SeedWork
 {
-    public abstract class Entity<TId>
+    public abstract class Entity<TId> : EntityBase
     {
-
         public TId? Id { get; init; }
-
-        private List<IDomainEvent>? _domainEvents;
-
-        public IReadOnlyCollection<IDomainEvent>? DomainEvents => _domainEvents?.AsReadOnly();
-
-        protected void AddDomainEvent(IDomainEvent domainEvent)
-        {
-            _domainEvents = _domainEvents ?? [];
-            this._domainEvents.Add(domainEvent);
-
-        }
-
-        public void ClearDomainEvents()
-        {
-            _domainEvents?.Clear();
-        }
     }
 }

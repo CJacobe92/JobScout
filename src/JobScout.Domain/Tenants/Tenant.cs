@@ -31,8 +31,6 @@ namespace JobScout.Domain.Tenants
             WelcomeEmailSent = false;
             CreatedAt = DateTime.UtcNow;
             UpdatedAt = DateTime.UtcNow;
-
-            this.AddDomainEvent(new TenantCreatedEvent(this.Id, companyName));
         }
 
         public static Tenant Create(
@@ -40,7 +38,11 @@ namespace JobScout.Domain.Tenants
             string shardKey
             )
         {
-            return new Tenant(companyName, shardKey);
+            var tenant = new Tenant(companyName, shardKey);
+
+            tenant.AddDomainEvent(new TenantCreatedEvent(tenant.Id, companyName));
+
+            return tenant;
         }
 
         public void MarkAsActivated()

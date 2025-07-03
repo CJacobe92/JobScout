@@ -15,7 +15,8 @@ namespace JobScout.Infrastructure.Repository.Tenants;
 public class TenantWriteRepository(
     AppDbContext context,
     IMediator mediator,
-    UserManager<TenantUser> userManager
+    UserManager<TenantUser> userManager,
+    IDomainEventDispatcher dispatcher
 ) : ITenantWriteRepository
 {
     private readonly IMediator _mediator = mediator;
@@ -69,8 +70,8 @@ public class TenantWriteRepository(
                 .Select(e => (Entity<object>)e.Entity)
                 .ToList();
 
-            await context.DomainEventsAsync(_mediator, ct);
             await context.SaveChangesAsync(ct);
+            await context.DispatchTrackedDomainEventsAsync(dispatcher, ct);
             await trx.CommitAsync(ct);
 
             return Result<Tenant>.Success(newTenant);

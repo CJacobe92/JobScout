@@ -11,11 +11,16 @@ public static class InfrastructureModule
         string appDbConnStr,
         string tenantDbConnStr)
     {
+        // Domain Event Dispatcher
+        ExtensionsModule.Register(services);
+
         //Contexts
         DbContextModule.Register(services, appDbConnStr, tenantDbConnStr);
 
         // Repository
         RepositoryModule.Register(services);
+
+
 
         // Identity
         IdentityModule.Register(services);
