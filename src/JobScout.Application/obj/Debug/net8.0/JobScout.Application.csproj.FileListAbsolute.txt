@@ -1,3 +1,12 @@
+//wsl.localhost/Ubuntu/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.csproj.AssemblyReference.cache
+//wsl.localhost/Ubuntu/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.GeneratedMSBuildEditorConfig.editorconfig
+//wsl.localhost/Ubuntu/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.AssemblyInfoInputs.cache
+//wsl.localhost/Ubuntu/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.AssemblyInfo.cs
+//wsl.localhost/Ubuntu/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.csproj.CoreCompileInputs.cache
+//wsl.localhost/Ubuntu/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.sourcelink.json
+//wsl.localhost/Ubuntu/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.dll
+//wsl.localhost/Ubuntu/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/refint/JobScout.Application.dll
+//wsl.localhost/Ubuntu/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.pdb
 /home/cjadmin/Projects/JobScout/src/JobScout.Application/bin/Debug/net8.0/JobScout.Application.deps.json
 /home/cjadmin/Projects/JobScout/src/JobScout.Application/bin/Debug/net8.0/JobScout.Application.dll
 /home/cjadmin/Projects/JobScout/src/JobScout.Application/bin/Debug/net8.0/JobScout.Application.pdb
@@ -8,6 +17,7 @@
 /home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.AssemblyInfoInputs.cache
 /home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.AssemblyInfo.cs
 /home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.csproj.CoreCompileInputs.cache
+/home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.sourcelink.json
 /home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.csproj.CopyComplete
 /home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/JobScout.Application.dll
 /home/cjadmin/Projects/JobScout/src/JobScout.Application/obj/Debug/net8.0/refint/JobScout.Application.dll

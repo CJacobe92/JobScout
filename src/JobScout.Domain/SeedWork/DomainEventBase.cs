@@ -14,6 +14,6 @@ namespace JobScout.Domain.SeedWork
             this.OccuredOn = DateTime.Now;
         }
 
-        public DateTime OccuredOn { get;  }
+        public DateTime OccuredOn { get; }
     }
 }
