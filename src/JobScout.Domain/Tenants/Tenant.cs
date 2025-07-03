@@ -13,7 +13,7 @@ namespace JobScout.Domain.Tenants
     public class Tenant : Entity<TenantId>, IAggregateRoot
     {
         public string CompanyName { get; private set; }
-        public string ShardKey { get; private set; }
+        public string Slug { get; private set; }
         public bool IsActivated { get; private set; }
         public bool WelcomeEmailSent { get; private set; }
         public DateTime CreatedAt { get; private set; }
@@ -21,12 +21,12 @@ namespace JobScout.Domain.Tenants
 
         private Tenant(
             string companyName,
-            string shardKey
+            string slug
             )
         {
             this.Id = TenantId.New();
             CompanyName = companyName;
-            ShardKey = shardKey;
+            Slug = slug;
             IsActivated = false;
             WelcomeEmailSent = false;
             CreatedAt = DateTime.UtcNow;
@@ -35,10 +35,10 @@ namespace JobScout.Domain.Tenants
 
         public static Tenant Create(
             string companyName,
-            string shardKey
+            string slug
             )
         {
-            var tenant = new Tenant(companyName, shardKey);
+            var tenant = new Tenant(companyName, slug);
 
             tenant.AddDomainEvent(new TenantCreatedEvent(tenant.Id, companyName));
 

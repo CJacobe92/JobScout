@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JobScout.Domain.Tenants.Contracts
 {
-    public interface IShardResolver
+    public interface ISlugResolver
     {
         string ResolveFor(string companyName);
     }

@@ -17,7 +17,7 @@ namespace JobScout.Infrastructure.Identity
         public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; init; } = DateTime.UtcNow;
         public TenantId TenantId { get; init; } = default!;
-        internal TenantUser() { }
+        public TenantUser() { }
 
         private TenantUser(string firstName, string lastName, string email, TenantId tenantId)
         {

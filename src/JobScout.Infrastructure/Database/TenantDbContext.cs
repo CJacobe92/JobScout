@@ -14,11 +14,14 @@ namespace JobScout.Infrastructure.Database
 {
     public class TenantDbContext : IdentityDbContext<TenantUser, IdentityRole<Guid>, Guid>
     {
-
-        public TenantDbContext(DbContextOptions<TenantDbContext> options) : base(options) { }
+        public readonly string _schema;
+        public TenantDbContext(DbContextOptions<TenantDbContext> options) : base(options)
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new TenantUserConfiguration());

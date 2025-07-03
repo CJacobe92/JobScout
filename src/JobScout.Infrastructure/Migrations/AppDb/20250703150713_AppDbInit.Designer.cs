@@ -3,17 +3,20 @@ using System;
 using JobScout.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace JobScout.Infrastructure.Migrations
+namespace JobScout.Infrastructure.Migrations.AppDb
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250703150713_AppDbInit")]
+    partial class AppDbInit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,10 +69,10 @@ namespace JobScout.Infrastructure.Migrations
                         .HasColumnType("boolean")
                         .HasColumnName("IsActivated");
 
-                    b.Property<string>("ShardKey")
+                    b.Property<string>("Slug")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("ShardKey");
+                        .HasColumnName("Slug");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")

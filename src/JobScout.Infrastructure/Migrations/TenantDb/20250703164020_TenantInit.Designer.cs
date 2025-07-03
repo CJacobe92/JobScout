@@ -9,11 +9,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace JobScout.Infrastructure.Migrations
+namespace JobScout.Infrastructure.Migrations.TenantDb
 {
-    [DbContext(typeof(AppDbContext))]
-    [Migration("20250703093642_AppInit")]
-    partial class AppInit
+    [DbContext(typeof(TenantDbContext))]
+    [Migration("20250703164020_TenantInit")]
+    partial class TenantInit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,69 +25,7 @@ namespace JobScout.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("JobScout.Domain.Outbox.Outbox", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("ContentJson")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("EventType")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)");
-
-                    b.Property<DateTime?>("ProcessedOn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Outbox", (string)null);
-                });
-
-            modelBuilder.Entity("JobScout.Domain.Tenants.Tenant", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("CompanyName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("CompanyName");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("CreatedAt");
-
-                    b.Property<bool>("IsActivated")
-                        .HasColumnType("boolean")
-                        .HasColumnName("IsActivated");
-
-                    b.Property<string>("ShardKey")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ShardKey");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("UpdatedAt");
-
-                    b.Property<bool>("WelcomeEmailSent")
-                        .HasColumnType("boolean")
-                        .HasColumnName("WelcomeEmailSent");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tenants", (string)null);
-                });
-
-            modelBuilder.Entity("JobScout.Infrastructure.Identity.AppUser", b =>
+            modelBuilder.Entity("JobScout.Infrastructure.Identity.TenantUser", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -154,6 +92,9 @@ namespace JobScout.Infrastructure.Migrations
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
@@ -319,7 +260,7 @@ namespace JobScout.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("JobScout.Infrastructure.Identity.AppUser", null)
+                    b.HasOne("JobScout.Infrastructure.Identity.TenantUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -328,7 +269,7 @@ namespace JobScout.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("JobScout.Infrastructure.Identity.AppUser", null)
+                    b.HasOne("JobScout.Infrastructure.Identity.TenantUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -343,7 +284,7 @@ namespace JobScout.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("JobScout.Infrastructure.Identity.AppUser", null)
+                    b.HasOne("JobScout.Infrastructure.Identity.TenantUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -352,7 +293,7 @@ namespace JobScout.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("JobScout.Infrastructure.Identity.AppUser", null)
+                    b.HasOne("JobScout.Infrastructure.Identity.TenantUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
