@@ -1,4 +1,5 @@
 ﻿using JobScout.API.Configuration;
+using JobScout.API.Middlewares;
 using JobScout.Application.Configuration;
 using JobScout.Infrastructure;
 using JobScout.Infrastructure.Registrations;
@@ -19,8 +20,9 @@ namespace JobScout.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseMiddleware<TenantContextMiddleware>();
             app.UseRouting();
+
 
             app.UseEndpoints(endpoints =>
             {
@@ -30,12 +32,12 @@ namespace JobScout.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var appDbConnStr = _configuration.GetSection("ConnectionStrings")["AppDb"];
+            var appDbConnStr = _configuration.GetSection("ConnectionString")["AppDb"];
             var mongoDbConnStr = _configuration.GetSection("MongoDb")["ConnectionString"];
 
             APIModule.Register(services);
             ApplicationModule.Register(services);
-            InfrastructureModule.Register(services, appDbConnStr!, mongoDbConnStr);
+            InfrastructureModule.Register(services, appDbConnStr!, mongoDbConnStr!);
         }
     }
 }

@@ -12,5 +12,10 @@ namespace JobScout.Domain.Tenants.Contracts
             string Password,
             CancellationToken ct
         );
+
+        Task<IResult<Tenant>> UpdateTenantAsync(
+            string? companyName,
+            CancellationToken cancellationToken
+        );
     }
 }

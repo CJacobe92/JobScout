@@ -11,11 +11,13 @@ using MediatR;
 namespace JobScout.Infrastructure.Repository.Tenants;
 
 public class TenantWriteRepository(
-    AppDbContext context,
+    AppDbContext appDbContext,
+    TenantDbContext tenantDbContext,
     IMediator mediator,
     IDomainEventDispatcher dispatcher,
     ISlugResolver slugResolver,
-    TenantProvisioner provisioner
+    TenantProvisioner provisioner,
+    ITenantContext tenantContext
     ) : ITenantWriteRepository
 {
     private readonly IMediator _mediator = mediator;
@@ -31,7 +33,7 @@ public class TenantWriteRepository(
     {
         ct.ThrowIfCancellationRequested();
 
-        using var trx = await context.Database.BeginTransactionAsync(ct);
+        using var trx = await appDbContext.Database.BeginTransactionAsync(ct);
 
         try
         {
@@ -47,11 +49,11 @@ public class TenantWriteRepository(
             await provisioner.EnsureSchemaCreatedAsync(newUser, password, tenantId, configuredSlug, ct);
 
             // Step 6: Persist tenant globally
-            await context.Tenants.AddAsync(newTenant, ct);
+            await appDbContext.Tenants.AddAsync(newTenant, ct);
 
             // Step 7: Fire domain events & commit
-            await context.SaveChangesAsync(ct);
-            await context.DispatchTrackedDomainEventsAsync(dispatcher, ct);
+            await appDbContext.SaveChangesAsync(ct);
+            await appDbContext.DispatchTrackedDomainEventsAsync(dispatcher, ct);
             await trx.CommitAsync(ct);
 
             return Result<Tenant>.Success(newTenant);
@@ -62,4 +64,39 @@ public class TenantWriteRepository(
             throw;
         }
     }
+
+    public async Task<IResult<Tenant>> UpdateTenantAsync(
+        string? companyName,
+        CancellationToken ct
+    )
+    {
+        ct.ThrowIfCancellationRequested();
+        using var trx = await tenantDbContext.Database.BeginTransactionAsync(ct);
+        var tenantId = tenantContext.TenantId;
+
+        try
+        {
+            var foundTenant = await FindTenantAsync(tenantId, ct);
+
+            if (foundTenant is null)
+            {
+                throw new ArgumentException("Tenant not found");
+            }
+
+            foundTenant.ChangeCompanyName(companyName!);
+            return Result<Tenant>.Success(foundTenant);
+        }
+        catch (System.Exception)
+        {
+
+            return Result<Tenant>.Failure("Failed to update tenant");
+        }
+    }
+
+    private async Task<Tenant?> FindTenantAsync(TenantId id, CancellationToken ct)
+    {
+        return await appDbContext.Tenants.FindAsync(id, ct);
+    }
+
+
 }

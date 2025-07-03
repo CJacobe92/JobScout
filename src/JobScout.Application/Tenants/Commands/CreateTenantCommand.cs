@@ -10,5 +10,6 @@ public record CreateTenantCommand(
     string FirstName,
     string LastName,
     string Email,
-    string Password
+    string Password,
+    CancellationToken CancellationToken
 ) : IRequest<IResult<Tenant>>;

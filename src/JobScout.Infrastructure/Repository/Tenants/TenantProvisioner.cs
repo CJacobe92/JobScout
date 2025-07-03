@@ -28,7 +28,7 @@ public class TenantProvisioner(
     {
         // 🔹 PostgreSQL provisioning
         string dbName = "tenant_" + slug;
-        string defaultConnectionString = _config.GetSection("ConnectionStrings")["AppDb"];
+        string defaultConnectionString = _config.GetSection("ConnectionString")["AppDb"];
         string newConnectionString = defaultConnectionString.Replace("jobscout_dev", dbName);
 
         var scoped = _scopeFactory.CreateScopedIdentityServices(newConnectionString);

@@ -9,7 +9,16 @@ namespace JobScout.Domain.Tenants
 
         public override string ToString() => Value.ToString("D");
 
-        public static TenantId Parse(string raw) =>
-            new(Guid.TryParse(raw, out var g) ? g : throw new FormatException("Invalid GUID"));
+        public static bool TryParse(string input, out TenantId tenantId)
+        {
+            if (Guid.TryParse(input, out var guid))
+            {
+                tenantId = new TenantId(guid);
+                return true;
+            }
+
+            tenantId = default;
+            return false;
+        }
     }
 }

@@ -3,7 +3,7 @@ using JobScout.Domain.Tenants;
 
 namespace JobScout.API.GraphQL.Tenants.Output;
 
-public record CreateTenantOutput(
+public record TenantOutput(
     string Id,
     string CompanyName,
     string CreatedAt,

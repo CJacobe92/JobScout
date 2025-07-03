@@ -45,6 +45,24 @@ namespace JobScout.Domain.Tenants
             return tenant;
         }
 
+        public void ChangeCompanyName(string companyName)
+        {
+            CompanyName = companyName;
+            TouchLastUpdated();
+        }
+
+        public void ChangeActivation(bool isActivated)
+        {
+            IsActivated = isActivated;
+            TouchLastUpdated();
+        }
+
+        public void ChangeMarkWelcomeSent(bool hasSent)
+        {
+            WelcomeEmailSent = hasSent;
+            TouchLastUpdated();
+        }
+
         public void MarkAsActivated()
         {
             this.IsActivated = true;
