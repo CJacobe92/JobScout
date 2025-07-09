@@ -1,0 +1,17 @@
+networks:
+  app: {}
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jobscout-api
+    ports:
+      - "8080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ConnectionStrings__AppDb: Host=db;Port=5432;Database=jobscout_db_dev;Username=postgres;Password=postgres
+      Kafka__BootstrapServers: kafka:9092
+    networks:
+      - app

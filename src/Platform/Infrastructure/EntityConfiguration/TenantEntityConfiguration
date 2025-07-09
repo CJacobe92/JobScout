@@ -1,0 +1,60 @@
+using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Infrastructure.Persistence.Configurations;
+
+public class TenantEntityConfiguration : IEntityTypeConfiguration<Tenant>
+{
+    public void Configure(EntityTypeBuilder<Tenant> builder)
+    {
+        builder.ToTable("Tenants");
+
+        builder.HasKey(t => t.Id);
+
+        builder.Property(t => t.Name)
+            .IsRequired()
+            .HasMaxLength(200);
+
+        builder.Property(t => t.License)
+            .IsRequired()
+            .HasMaxLength(100);
+
+        builder.Property(t => t.Phone)
+            .IsRequired()
+            .HasMaxLength(50);
+
+        builder.Property(t => t.RegisteredTo)
+            .IsRequired()
+            .HasMaxLength(100);
+
+        builder.Property(t => t.TIN)
+            .IsRequired()
+            .HasMaxLength(50);
+
+        builder.Property(t => t.Address)
+            .IsRequired()
+            .HasMaxLength(300);
+
+        builder.Property(t => t.IsActivated)
+            .IsRequired();
+
+        builder.Property(t => t.IsDeleted)
+            .IsRequired();
+
+        builder.Property(t => t.CreatedAt)
+            .IsRequired();
+
+        builder.Property(t => t.UpdatedAt)
+            .IsRequired();
+
+        builder.Property(t => t.DeletedAt);
+
+        // ✅ Indexes for performance
+        builder.HasIndex(t => t.Name);
+        builder.HasIndex(t => t.License);
+        builder.HasIndex(t => t.RegisteredTo);
+        builder.HasIndex(t => t.IsDeleted);
+        builder.HasIndex(t => t.CreatedAt);
+    }
+}

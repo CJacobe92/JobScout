@@ -1,0 +1,85 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "net8.0": []
+  },
+  "packageFolders": {
+    "/home/cjadmin/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/cjadmin/Projects/JobScout/src/Platform/Application/Application.csproj",
+      "projectName": "Application",
+      "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Application/Application.csproj",
+      "packagesPath": "/home/cjadmin/.nuget/packages/",
+      "outputPath": "/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/",
+      "projectStyle": "PackageReference",
+      "centralPackageVersionsManagementEnabled": true,
+      "configFilePaths": [
+        "/home/cjadmin/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "centralPackageVersions": {
+          "Confluent.Kafka": "[2.3.0, )",
+          "MediatR": "[12.5.0, )",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "[12.0.1, )",
+          "Microsoft.AspNetCore.OpenApi": "[8.0.17, )",
+          "Microsoft.EntityFrameworkCore": "[8.0.17, )",
+          "Microsoft.EntityFrameworkCore.Design": "[8.0.17, )",
+          "Microsoft.EntityFrameworkCore.Relational": "[8.0.17, )",
+          "Microsoft.EntityFrameworkCore.Tools": "[8.0.17, )",
+          "Microsoft.Extensions.Configuration": "[8.0.0, )",
+          "Microsoft.Extensions.Configuration.Json": "[8.0.1, )",
+          "Microsoft.Extensions.Hosting": "[8.0.0, )",
+          "Microsoft.Extensions.Options": "[8.0.2, )",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )",
+          "StackExchange.Redis": "[2.8.41, )",
+          "Swashbuckle.AspNetCore": "[6.6.2, )"
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.117/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

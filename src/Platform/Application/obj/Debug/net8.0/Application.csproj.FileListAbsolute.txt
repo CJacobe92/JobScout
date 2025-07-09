@@ -1,0 +1,12 @@
+/home/cjadmin/Projects/JobScout/src/Platform/Application/bin/Debug/net8.0/Application.deps.json
+/home/cjadmin/Projects/JobScout/src/Platform/Application/bin/Debug/net8.0/Application.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Application/bin/Debug/net8.0/Application.pdb
+/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/Debug/net8.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/Debug/net8.0/Application.AssemblyInfoInputs.cache
+/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/Debug/net8.0/Application.AssemblyInfo.cs
+/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/Debug/net8.0/Application.csproj.CoreCompileInputs.cache
+/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/Debug/net8.0/Application.sourcelink.json
+/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/Debug/net8.0/Application.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/Debug/net8.0/refint/Application.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/Debug/net8.0/Application.pdb
+/home/cjadmin/Projects/JobScout/src/Platform/Application/obj/Debug/net8.0/ref/Application.dll
