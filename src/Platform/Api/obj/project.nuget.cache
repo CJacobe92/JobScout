@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "1yPYLlfp8gR0n9dh8b8T5GzggwlDpbHPhaScEUcOJ+MjWyKHlUqGFbAb8ZnBaodtIEiXyThGkjlaGtmkncGHMQ==",
+  "dgSpecHash": "Wi5O6rhQNEkx20nkzblDphYJD7tmbacUWPWk9cZPp2J9xFv0WrPYABHUajmRw+VKb3Lh1v+adtDGeD+sfOV1fQ==",
   "success": true,
   "projectFilePath": "/home/cjadmin/Projects/JobScout/src/Platform/Api/Api.csproj",
   "expectedPackageFiles": [
     "/home/cjadmin/.nuget/packages/confluent.kafka/2.3.0/confluent.kafka.2.3.0.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/fluentvalidation.dependencyinjectionextensions/12.0.0/fluentvalidation.dependencyinjectionextensions.12.0.0.nupkg.sha512",
     "/home/cjadmin/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/cjadmin/.nuget/packages/librdkafka.redist/2.3.0/librdkafka.redist.2.3.0.nupkg.sha512",
     "/home/cjadmin/.nuget/packages/microsoft.aspnetcore.openapi/8.0.17/microsoft.aspnetcore.openapi.8.0.17.nupkg.sha512",

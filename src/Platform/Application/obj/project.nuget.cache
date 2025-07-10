@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "F2944WfW0kiGry2swK2RTFalwHDRHgLDH4dJukoGxbD+zoSiSrGHV/tSD0H+0OpUv4/KTHD3QttqlHlMOIjizQ==",
+  "dgSpecHash": "6/O510M2jpP6jWi5udThuZHdeKrjOfrqtPsDBToRGlluza1FlP6MZM2Q2nIiWAaZ1vzCJWmWrbqQKb7dimAyPw==",
   "success": true,
   "projectFilePath": "/home/cjadmin/Projects/JobScout/src/Platform/Application/Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/cjadmin/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

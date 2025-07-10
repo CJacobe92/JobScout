@@ -26,7 +26,14 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/cjadmin/Projects/JobScout/src/Platform/Domain/Domain.csproj": {
+                "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Domain/Domain.csproj"
+              },
+              "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj": {
+                "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -38,8 +45,17 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.0.0, )",
+              "versionCentrallyManaged": true
+            }
+          },
           "centralPackageVersions": {
             "Confluent.Kafka": "[2.3.0, )",
+            "FluentValidation": "[12.0.0, )",
+            "FluentValidation.DependencyInjectionExtensions": "[12.0.0, )",
             "MediatR": "[12.5.0, )",
             "MediatR.Extensions.Microsoft.DependencyInjection": "[12.0.1, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.17, )",
@@ -56,6 +72,116 @@
             "StackExchange.Redis": "[2.8.41, )",
             "Swashbuckle.AspNetCore": "[6.6.2, )"
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.117/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/cjadmin/Projects/JobScout/src/Platform/Domain/Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/cjadmin/Projects/JobScout/src/Platform/Domain/Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Domain/Domain.csproj",
+        "packagesPath": "/home/cjadmin/.nuget/packages/",
+        "outputPath": "/home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/cjadmin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj": {
+                "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.117/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj",
+        "projectName": "Shared",
+        "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj",
+        "packagesPath": "/home/cjadmin/.nuget/packages/",
+        "outputPath": "/home/cjadmin/Projects/JobScout/src/Platform/Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/cjadmin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",

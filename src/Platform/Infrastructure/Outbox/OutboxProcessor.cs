@@ -4,21 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
-using Shared.Contracts.Events;
+using Shared.Events.Tenants;
 
 namespace Infrastructure.Outbox;
 
-public class OutboxProcessor : BackgroundService
+public class OutboxProcessor(IServiceProvider provider, ILogger<OutboxProcessor> logger) : BackgroundService
 {
-    private readonly IServiceProvider _provider;
-    private readonly ILogger<OutboxProcessor> _logger;
+    private readonly IServiceProvider _provider = provider;
+    private readonly ILogger<OutboxProcessor> _logger = logger;
     private const int MaxRetries = 3;
-
-    public OutboxProcessor(IServiceProvider provider, ILogger<OutboxProcessor> logger)
-    {
-        _provider = provider;
-        _logger = logger;
-    }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {

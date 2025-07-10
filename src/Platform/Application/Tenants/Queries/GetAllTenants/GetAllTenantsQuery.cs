@@ -1,6 +1,6 @@
 using System;
 
-namespace Application.Queries;
+namespace Application.Tenants.Queries.GetaLLTenants;
 
 public record GetAllTenantsQuery(
     int Page = 1,

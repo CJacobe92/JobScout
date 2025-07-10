@@ -9,12 +9,12 @@
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Infrastructure.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Infrastructure.pdb
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Domain.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Shared.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Domain.pdb
+/home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Shared.pdb
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/obj/Debug/net8.0/Infrastructure.csproj.CopyComplete
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/obj/Debug/net8.0/Infrastructure.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/obj/Debug/net8.0/refint/Infrastructure.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/obj/Debug/net8.0/Infrastructure.pdb
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/obj/Debug/net8.0/Infrastructure.genruntimeconfig.cache
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/obj/Debug/net8.0/ref/Infrastructure.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Shared.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Shared.pdb

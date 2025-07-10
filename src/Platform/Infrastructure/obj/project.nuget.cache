@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "R6nUoBgwcnweIQumMfq32TXUqN50L3IcSUoq0cQgnF10t93jMba4Dr76+/R4Md5Po5ihXhbdQC/dmMG09xVA4w==",
+  "dgSpecHash": "j0DPBCwW1rgcsbLlaD9v3755Q7lr8yYe3RMZM9Xxd/8upapoqT7H2YUZZ+akgC1pxtzAZmGiw3uKZvsCRR3YZg==",
   "success": true,
   "projectFilePath": "/home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -52,6 +52,8 @@
     "/home/cjadmin/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/home/cjadmin/.nuget/packages/npgsql/8.0.6/npgsql.8.0.6.nupkg.sha512",
     "/home/cjadmin/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.11/npgsql.entityframeworkcore.postgresql.8.0.11.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/stackexchange.redis/2.8.41/stackexchange.redis.2.8.41.nupkg.sha512",
     "/home/cjadmin/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/home/cjadmin/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/home/cjadmin/.nuget/packages/system.composition/6.0.0/system.composition.6.0.0.nupkg.sha512",

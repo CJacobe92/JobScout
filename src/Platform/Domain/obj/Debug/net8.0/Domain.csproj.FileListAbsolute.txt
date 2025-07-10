@@ -1,11 +1,15 @@
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/bin/Debug/net8.0/Domain.deps.json
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/bin/Debug/net8.0/Domain.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/bin/Debug/net8.0/Domain.pdb
+/home/cjadmin/Projects/JobScout/src/Platform/Domain/bin/Debug/net8.0/Shared.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Domain/bin/Debug/net8.0/Shared.pdb
+/home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/Domain.csproj.AssemblyReference.cache
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/Domain.AssemblyInfoInputs.cache
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/Domain.AssemblyInfo.cs
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/Domain.csproj.CoreCompileInputs.cache
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/Domain.sourcelink.json
+/home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/Domain.csproj.CopyComplete
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/Domain.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/refint/Domain.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Domain/obj/Debug/net8.0/Domain.pdb

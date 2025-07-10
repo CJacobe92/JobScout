@@ -1,8 +1,11 @@
 using System;
 
+using Shared.Events.Tenants;
+using Shared.SeedWork;
+
 namespace Domain.Entities;
 
-public class Tenant
+public class Tenant : BaseEntity, IAggregateRoot
 {
     public Guid Id { get; private set; } = Guid.NewGuid();
     public string Name { get; private set; }
@@ -14,12 +17,12 @@ public class Tenant
     public bool IsActivated { get; private set; } = false;
     public bool IsDeleted { get; private set; } = false;
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
-    public DateTime UpdatedAt { get; private set; } = DateTime.UtcNow;
+    public DateTime? UpdatedAt { get; private set; }
     public DateTime? DeletedAt { get; private set; }
 
-    public Tenant() { }
-
-    public Tenant(
+    private Tenant() { }
+    
+    private Tenant(
         string name,
         string license,
         string phone,
@@ -33,6 +36,21 @@ public class Tenant
         RegisteredTo = registeredTo;
         TIN = tin;
         Address = address;
+    }
+
+    public static Tenant Create(
+        string name,
+        string license,
+        string phone,
+        string registeredTo,
+        string tin,
+        string address)
+    {
+
+        var tenant = new Tenant(name, license, phone, registeredTo, tin, address);
+
+        tenant.AddDomainEvent(new TenantCreatedEvent(tenant.Id, tenant.Name, tenant.License));
+        return tenant;
     }
 
     public void Activate() => IsActivated = true;

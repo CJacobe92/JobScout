@@ -2,6 +2,8 @@
   <ItemGroup>
     <!-- Kafka -->
     <PackageVersion Include="Confluent.Kafka" Version="2.3.0" />
+    <PackageVersion Include="FluentValidation" Version="12.0.0" />
+    <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
     <!-- MediatR (optional, if using CQRS) -->
     <PackageVersion Include="MediatR" Version="12.5.0" />
     <PackageVersion Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
