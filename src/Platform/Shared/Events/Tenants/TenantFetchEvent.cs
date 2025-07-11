@@ -1,5 +1,5 @@
 using System;
 
-namespace Shared.Contracts.Events;
+namespace Shared.Events.Tenants;
 
 public record TenantsFetchedEvent(int Count, DateTime FetchedAt);

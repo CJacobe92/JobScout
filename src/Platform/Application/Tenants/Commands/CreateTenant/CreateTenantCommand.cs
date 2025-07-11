@@ -1,6 +1,6 @@
 using System;
 
-namespace Application.Commands;
+namespace Application.Tenants.Commands.CreateTenant;
 
 public record CreateTenantCommand(
     string Name,

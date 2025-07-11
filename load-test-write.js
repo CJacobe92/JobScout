@@ -41,7 +41,7 @@ export default function () {
   const payload = JSON.stringify({
     name: randomCompanyName(),
     license: `LIC-${new Date().getFullYear()}-${randomString(6).toUpperCase()}`,
-    phone: '+63-917-123-4567',
+    phone: '+639171234567',
     registeredTo: randomPersonName(),
     tin: `${Math.floor(100 + Math.random() * 900)}-${Math.floor(100 + Math.random() * 900)}-${Math.floor(100 + Math.random() * 900)}`,
     address: '123 Makati Ave, Metro Manila'

@@ -1,12 +1,12 @@
-using System;
-using Application.Commands;
-using Domain.Entities;
 using Infrastructure.Persistence;
-using Microsoft.EntityFrameworkCore;
-using Shared.Contracts.Events;
-using StackExchange.Redis;
-using System.Text.Json;
-using Api.Dtos;
+using Application.Tenants.Validators.CreateTenant;
+using FluentValidation;
+using Application.Tenants.Commands.CreateTenant;
+using Application.Tenants.Validators.GetAllTenants;
+using FluentValidation.Results;
+using Microsoft.AspNetCore.Mvc;
+using Application.Tenants.Queries.GetAllTenants;
+
 
 namespace Api;
 
@@ -15,116 +15,63 @@ public static class TenantEndpoints
     public static void MapTenantEndpoints(this WebApplication app)
     {
         app.MapPost("/api/tenants", async (
-            CreateTenantCommand command,
-            AppDbContext db,
-            IConnectionMultiplexer redis,
-            IConfiguration config,
-            CancellationToken ct) =>
+            [FromBody] CreateTenantDto request,
+            [FromServices] IValidator<CreateTenantDto> validator, // <--- Inject the validator
+            [FromServices] CreateTenantHandler handler,
+            CancellationToken ct
+            ) =>
         {
-            var tenant = new Tenant(
-                command.Name,
-                command.License,
-                command.Phone,
-                command.RegisteredTo,
-                command.TIN,
-                command.Address
-            );
+            // Perform manual validation
+            ValidationResult validationResult = await validator.ValidateAsync(request, ct);
 
-            db.Tenants.Add(tenant);
-
-            var evt = new TenantCreatedEvent(tenant.Id, tenant.Name, tenant.License);
-            db.AddOutboxEvent(evt);
-
-            await db.SaveChangesAsync(ct);
-
-            var redisHost = config["Redis:Host"] ?? "redis"; // fallback to "redis" if not set
-            var redisPort = config["Redis:Port"] ?? "6379";
-
-            var server = redis.GetServer($"{redisHost}:{redisPort}");
-            var keys = server.Keys(pattern: "tenants:*").ToArray();
-
-            foreach (var key in keys)
+            if (!validationResult.IsValid)
             {
-                await redis.GetDatabase().KeyDeleteAsync(key);
+                return Results.ValidationProblem(validationResult.ToDictionary());
             }
 
-            return Results.Created($"/api/tenants/{tenant.Id}", tenant);
-        });
+            var command = new CreateTenantCommand(
+                request.Name,
+                request.License,
+                request.Phone,
+                request.RegisteredTo,
+                request.TIN,
+                request.Address
+            );
+
+            var tenant = await handler.HandleAsync(command, ct);
+            return Results.Created($"/tenants/{tenant}", new { Data = tenant });
+        })
+        .WithName("CreateTenant")
+        .Produces(StatusCodes.Status201Created)
+        .Produces(StatusCodes.Status400BadRequest); //
 
 
         app.MapGet("/api/tenants", async (
-            AppDbContext db,
-            IConnectionMultiplexer redis,
-            CancellationToken ct,
-            string? search,
-            int page = 1,
-            int pageSize = 10) =>
+            [AsParameters] GetAllTenantsDto request,
+            [FromServices] IValidator<GetAllTenantsDto> validator,
+            [FromServices] GetAllTenantsHandler handler,
+            CancellationToken ct
+        ) =>
         {
-            const int MaxPageSize = 100;
+            ValidationResult validationResult = await validator.ValidateAsync(request, ct);
 
-            if (page < 1 || pageSize < 1)
-                return Results.BadRequest("Page and pageSize must be greater than 0.");
-
-            if (pageSize > MaxPageSize)
-                pageSize = MaxPageSize;
-
-            var cacheKey = $"tenants:{search}:{page}:{pageSize}";
-            var cache = redis.GetDatabase();
-
-            // Try to get from cache
-            var cached = await cache.StringGetAsync(cacheKey);
-            if (cached.HasValue)
+            if (!validationResult.IsValid)
             {
-                var cachedResult = JsonSerializer.Deserialize<TenantListDto>(cached!);
-                return Results.Ok(cachedResult);
+                return Results.ValidationProblem(validationResult.ToDictionary());
             }
 
-            // Query from DB
-            var query = db.Tenants
-                .AsNoTracking()
-                .OrderBy(t => t.Name)
-                .AsQueryable();
+            var command = new GetAllTenantsQuery(
+                request.Search,
+                request.By,
+                request.Page,
+                request.PageSize
+            );
 
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                query = query.Where(t =>
-                    EF.Functions.ILike(t.Name, $"%{search}%") ||
-                    EF.Functions.ILike(t.License, $"%{search}%"));
-            }
-
-            var totalCount = await query.CountAsync(ct);
-
-            var tenants = await query
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .Select(t => new TenantDto(
-                    t.Id,
-                    t.Name,
-                    t.License
-                ))
-                .ToListAsync(ct);
-
-            var evt = new TenantsFetchedEvent(tenants.Count, DateTime.UtcNow);
-            db.AddOutboxEvent(evt);
-            await db.SaveChangesAsync(ct);
-
-            var result = new TenantListDto
-            {
-                Page = page,
-                PageSize = pageSize,
-                TotalCount = totalCount,
-                TotalPages = (int)Math.Ceiling(totalCount / (double)pageSize),
-                Items = tenants
-            };
-
-            // Cache the result for 30 seconds
-            await cache.StringSetAsync(
-                cacheKey,
-                JsonSerializer.Serialize(result),
-                TimeSpan.FromSeconds(30));
-
-            return Results.Ok(result);
-        });
-
+            var tenants = await handler.HandleAsync(command, ct);
+            return Results.Ok(new { Data = tenants }); // 👈 Standardized response format
+        })
+        .WithName("GetAllTenants")
+        .Produces(StatusCodes.Status200OK)
+        .Produces(StatusCodes.Status400BadRequest);
     }
 }

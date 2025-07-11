@@ -52,6 +52,16 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[12.0.0, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.17, )",
@@ -62,6 +72,26 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.17, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[9.0.7, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[9.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[7.0.0, )",
               "versionCentrallyManaged": true
             },
             "StackExchange.Redis": {
@@ -77,6 +107,8 @@
           },
           "centralPackageVersions": {
             "Confluent.Kafka": "[2.3.0, )",
+            "FluentValidation": "[12.0.0, )",
+            "FluentValidation.DependencyInjectionExtensions": "[12.0.0, )",
             "MediatR": "[12.5.0, )",
             "MediatR.Extensions.Microsoft.DependencyInjection": "[12.0.1, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.17, )",
@@ -87,9 +119,13 @@
             "Microsoft.Extensions.Configuration": "[8.0.0, )",
             "Microsoft.Extensions.Configuration.Json": "[8.0.1, )",
             "Microsoft.Extensions.Hosting": "[8.0.0, )",
+            "Microsoft.Extensions.Logging": "[9.0.7, )",
             "Microsoft.Extensions.Options": "[8.0.2, )",
             "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
             "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )",
+            "Serilog.AspNetCore": "[9.0.0, )",
+            "Serilog.Sinks.Console": "[6.0.0, )",
+            "Serilog.Sinks.File": "[7.0.0, )",
             "StackExchange.Redis": "[2.8.41, )",
             "Swashbuckle.AspNetCore": "[6.6.2, )"
           },
@@ -138,7 +174,14 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/cjadmin/Projects/JobScout/src/Platform/Domain/Domain.csproj": {
+                "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Domain/Domain.csproj"
+              },
+              "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj": {
+                "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -150,8 +193,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[12.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[9.0.7, )",
+              "versionCentrallyManaged": true
+            }
+          },
           "centralPackageVersions": {
             "Confluent.Kafka": "[2.3.0, )",
+            "FluentValidation": "[12.0.0, )",
+            "FluentValidation.DependencyInjectionExtensions": "[12.0.0, )",
             "MediatR": "[12.5.0, )",
             "MediatR.Extensions.Microsoft.DependencyInjection": "[12.0.1, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.17, )",
@@ -162,9 +219,13 @@
             "Microsoft.Extensions.Configuration": "[8.0.0, )",
             "Microsoft.Extensions.Configuration.Json": "[8.0.1, )",
             "Microsoft.Extensions.Hosting": "[8.0.0, )",
+            "Microsoft.Extensions.Logging": "[9.0.7, )",
             "Microsoft.Extensions.Options": "[8.0.2, )",
             "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
             "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )",
+            "Serilog.AspNetCore": "[9.0.0, )",
+            "Serilog.Sinks.Console": "[6.0.0, )",
+            "Serilog.Sinks.File": "[7.0.0, )",
             "StackExchange.Redis": "[2.8.41, )",
             "Swashbuckle.AspNetCore": "[6.6.2, )"
           },
@@ -209,7 +270,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj": {
+                "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -264,6 +329,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/home/cjadmin/Projects/JobScout/src/Platform/Application/Application.csproj": {
+                "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Application/Application.csproj"
+              },
               "/home/cjadmin/Projects/JobScout/src/Platform/Domain/Domain.csproj": {
                 "projectPath": "/home/cjadmin/Projects/JobScout/src/Platform/Domain/Domain.csproj"
               },
@@ -321,10 +389,17 @@
               "target": "Package",
               "version": "[8.0.11, )",
               "versionCentrallyManaged": true
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.41, )",
+              "versionCentrallyManaged": true
             }
           },
           "centralPackageVersions": {
             "Confluent.Kafka": "[2.3.0, )",
+            "FluentValidation": "[12.0.0, )",
+            "FluentValidation.DependencyInjectionExtensions": "[12.0.0, )",
             "MediatR": "[12.5.0, )",
             "MediatR.Extensions.Microsoft.DependencyInjection": "[12.0.1, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.17, )",
@@ -335,9 +410,13 @@
             "Microsoft.Extensions.Configuration": "[8.0.0, )",
             "Microsoft.Extensions.Configuration.Json": "[8.0.1, )",
             "Microsoft.Extensions.Hosting": "[8.0.0, )",
+            "Microsoft.Extensions.Logging": "[9.0.7, )",
             "Microsoft.Extensions.Options": "[8.0.2, )",
             "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
             "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )",
+            "Serilog.AspNetCore": "[9.0.0, )",
+            "Serilog.Sinks.Console": "[6.0.0, )",
+            "Serilog.Sinks.File": "[7.0.0, )",
             "StackExchange.Redis": "[2.8.41, )",
             "Swashbuckle.AspNetCore": "[6.6.2, )"
           },
