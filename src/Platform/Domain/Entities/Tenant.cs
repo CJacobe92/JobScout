@@ -1,7 +1,7 @@
 using System;
-
 using Shared.Events.Tenants;
 using Shared.SeedWork;
+
 
 namespace Domain.Entities;
 
@@ -20,8 +20,8 @@ public class Tenant : BaseEntity, IAggregateRoot
     public DateTime? UpdatedAt { get; private set; }
     public DateTime? DeletedAt { get; private set; }
 
-    private Tenant() { }
-    
+    public Tenant() { }
+
     private Tenant(
         string name,
         string license,

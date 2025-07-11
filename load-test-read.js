@@ -5,7 +5,7 @@ export const options = {
   scenarios: {
     read_test: {
       executor: 'constant-arrival-rate',
-      rate: 1000, // 🔥 1000 RPS
+      rate: 1000,
       timeUnit: '1s',
       duration: '10m',
       preAllocatedVUs: 200,
@@ -20,18 +20,25 @@ export const options = {
 
 const BASE_URL = 'http://localhost:8080';
 
-const searchTerms = ['acme', 'corp', 'globex', 'tech', 'inc', 'group', 'solutions'];
+const searchTerms = [
+  'Acme', 'Morgan', 'Troy', 'Velocity', 'Orbit', 'Summit', 'Pulse', 'Nexus',
+  'Fusion', 'Cascade', 'Zenith', 'Nova', 'Quantum'
+];
+
+const searchFields = ['name', 'registeredto', 'license'];
 
 export default function () {
   const page = Math.floor(Math.random() * 50) + 1;
   const pageSize = [5, 10, 20, 50][Math.floor(Math.random() * 4)];
   const search = searchTerms[Math.floor(Math.random() * searchTerms.length)];
+  const by = searchFields[Math.floor(Math.random() * searchFields.length)];
 
-  const url = `${BASE_URL}/api/tenants?page=${page}&pageSize=${pageSize}&search=${search}`;
+  const url = `${BASE_URL}/api/tenants?search=${encodeURIComponent(search)}&by=${by}&page=${page}&pageSize=${pageSize}`;
 
   const res = http.get(url);
 
   check(res, {
     'status is 200': (r) => r.status === 200,
+    'response is not empty': (r) => r.body && r.body.length > 2,
   });
 }

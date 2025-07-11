@@ -43,7 +43,7 @@ public class OutboxProcessor(IServiceProvider provider, ILogger<OutboxProcessor>
                             break;
 
                         default:
-                            _logger.LogWarning("Unknown event type: {Type}", msg.Type);
+                            // _logger.LogWarning("Unknown event type: {Type}", msg.Type);
                             continue;
                     }
 

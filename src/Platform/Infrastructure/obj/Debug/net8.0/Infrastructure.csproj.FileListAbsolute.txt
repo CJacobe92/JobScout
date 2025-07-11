@@ -18,3 +18,5 @@
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/obj/Debug/net8.0/Infrastructure.pdb
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/obj/Debug/net8.0/Infrastructure.genruntimeconfig.cache
 /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/obj/Debug/net8.0/ref/Infrastructure.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Application.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/bin/Debug/net8.0/Application.pdb

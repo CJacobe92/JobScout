@@ -1,16 +1,17 @@
 using System;
-using Application.Commands.CreateTenant;
 using Domain.Entities;
 using Domain.Repositories;
-using Shared.Events.Tenants;
+using Shared.SeedWork;
 
 namespace Application.Tenants.Commands.CreateTenant;
 
 public class CreateTenantHandler(
-    ITenantRepository tenantRepository
+    ITenantRepository tenantRepository,
+    ICacheService cacheService
 )
 {
     private readonly ITenantRepository _repo = tenantRepository;
+    private readonly ICacheService _cache = cacheService;
 
     public async Task<Tenant> HandleAsync(CreateTenantCommand command, CancellationToken ct)
     {
@@ -23,6 +24,8 @@ public class CreateTenantHandler(
             command.Address,
             ct
         );
+
+        await _cache.RemoveByPatternAsync("tenants:*", ct);
 
         return tenant;
     }

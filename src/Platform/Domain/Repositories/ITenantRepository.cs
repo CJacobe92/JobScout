@@ -17,6 +17,7 @@ public interface ITenantRepository
 
     Task<IEnumerable<Tenant>> GetAllAsync(
         string? search = null,
+        string? by = null,
         int page = 1,
         int pageSize = 10,
         CancellationToken cancellationToken = default

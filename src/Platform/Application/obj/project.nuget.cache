@@ -1,10 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "6/O510M2jpP6jWi5udThuZHdeKrjOfrqtPsDBToRGlluza1FlP6MZM2Q2nIiWAaZ1vzCJWmWrbqQKb7dimAyPw==",
+  "dgSpecHash": "gB0eoV8KA1iweQfMP26u44TRKDhLIBiihFmppvlQupODQhR3cVkLSSeCYxcB7NMPgCRZuf3heh/YxcN80a3Xow==",
   "success": true,
   "projectFilePath": "/home/cjadmin/Projects/JobScout/src/Platform/Application/Application.csproj",
   "expectedPackageFiles": [
-    "/home/cjadmin/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512"
+    "/home/cjadmin/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.7/microsoft.extensions.dependencyinjection.9.0.7.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.7/microsoft.extensions.dependencyinjection.abstractions.9.0.7.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.logging/9.0.7/microsoft.extensions.logging.9.0.7.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.7/microsoft.extensions.logging.abstractions.9.0.7.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.options/9.0.7/microsoft.extensions.options.9.0.7.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.primitives/9.0.7/microsoft.extensions.primitives.9.0.7.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/system.diagnostics.diagnosticsource/9.0.7/system.diagnostics.diagnosticsource.9.0.7.nupkg.sha512"
   ],
   "logs": []
 }

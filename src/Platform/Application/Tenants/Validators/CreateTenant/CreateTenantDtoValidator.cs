@@ -17,7 +17,7 @@ public class CreateTenantDtoValidator : AbstractValidator<CreateTenantDto>
 
         RuleFor(x => x.Phone)
             .NotEmpty().WithMessage("Phone number is required.")
-            .Matches(@"^\+?[0-9]{10,15}$").WithMessage("Invalid phone number format."); // Basic regex for 10-15 digits, optional '+'
+            .Matches(@"^\+?[0-9]{11,13}$").WithMessage("Invalid phone number format."); // Basic regex for 10-15 digits, optional '+'
 
         RuleFor(x => x.RegisteredTo)
             .NotEmpty().WithMessage("Registered user information is required.")

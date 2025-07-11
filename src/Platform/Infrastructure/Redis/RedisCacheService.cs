@@ -1,6 +1,7 @@
 using System;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Shared.SeedWork;
 using StackExchange.Redis;
 
@@ -8,16 +9,16 @@ namespace Infrastructure.Redis;
 
 public class RedisCacheService : ICacheService
 {
-    private readonly IConnectionMultiplexer _redis;
+    private readonly RedisSettings _settings;
     private readonly IDatabase _database;
-    private readonly IConfiguration _config;
-    private readonly TimeSpan _defaultExpiration = TimeSpan.FromSeconds(30);
 
-    public RedisCacheService(IConnectionMultiplexer redis, IConfiguration config)
+    private readonly IConnectionMultiplexer _redis;
+
+    public RedisCacheService(IConnectionMultiplexer redis, IOptions<RedisSettings> options)
     {
-        _redis = redis ?? throw new ArgumentNullException(nameof(redis));
-        _config = config ?? throw new ArgumentNullException(nameof(config));
-        _database = _redis.GetDatabase();
+        _settings = options.Value;
+        _redis = redis;
+        _database = redis.GetDatabase(_settings.DbIndex);
     }
 
     public async Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken = default) where T : class
@@ -27,7 +28,10 @@ public class RedisCacheService : ICacheService
 
         if (cachedValue.HasValue)
         {
-            return JsonSerializer.Deserialize<T>(cachedValue!);
+            var result = JsonSerializer.Deserialize<T>(cachedValue!);
+
+            await _database.KeyExpireAsync(key, TimeSpan.FromSeconds(_settings.DefaultExpirationSeconds));
+            return result;
         }
 
         return default;
@@ -37,7 +41,8 @@ public class RedisCacheService : ICacheService
     {
         cancellationToken.ThrowIfCancellationRequested();
         var jsonValue = JsonSerializer.Serialize(value);
-        await _database.StringSetAsync(key, jsonValue, absoluteExpirationRelativeToNow ?? _defaultExpiration);
+        var ttl = absoluteExpirationRelativeToNow ?? TimeSpan.FromSeconds(_settings.DefaultExpirationSeconds);
+        await _database.StringSetAsync(key, jsonValue, ttl);
     }
 
     public async Task RemoveAsync(string key, CancellationToken cancellationToken = default)
@@ -49,11 +54,7 @@ public class RedisCacheService : ICacheService
     public async Task RemoveByPatternAsync(string pattern, CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
-        var redisHost = _config["Redis:Host"] ?? "redis";
-        var redisPort = _config["Redis:Port"] ?? "6379";
-
-        var server = _redis.GetServer($"{redisHost}:{redisPort}");
-
+        var server = _redis.GetServer($"{_settings.Host}:{_settings.Port}");
         var keys = server.Keys(pattern: pattern).ToArray();
 
         foreach (var key in keys)
@@ -62,4 +63,3 @@ public class RedisCacheService : ICacheService
         }
     }
 }
-

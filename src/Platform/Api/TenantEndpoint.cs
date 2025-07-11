@@ -1,9 +1,11 @@
 using Infrastructure.Persistence;
-using Application.Commands.CreateTenant;
 using Application.Tenants.Validators.CreateTenant;
 using FluentValidation;
-using FluentValidation.Results;
 using Application.Tenants.Commands.CreateTenant;
+using Application.Tenants.Validators.GetAllTenants;
+using FluentValidation.Results;
+using Microsoft.AspNetCore.Mvc;
+using Application.Tenants.Queries.GetAllTenants;
 
 
 namespace Api;
@@ -13,10 +15,11 @@ public static class TenantEndpoints
     public static void MapTenantEndpoints(this WebApplication app)
     {
         app.MapPost("/api/tenants", async (
-            CreateTenantDto request,
-            IValidator<CreateTenantDto> validator, // <--- Inject the validator
-            CreateTenantHandler handler,
-            CancellationToken ct) =>
+            [FromBody] CreateTenantDto request,
+            [FromServices] IValidator<CreateTenantDto> validator, // <--- Inject the validator
+            [FromServices] CreateTenantHandler handler,
+            CancellationToken ct
+            ) =>
         {
             // Perform manual validation
             ValidationResult validationResult = await validator.ValidateAsync(request, ct);
@@ -43,15 +46,32 @@ public static class TenantEndpoints
         .Produces(StatusCodes.Status400BadRequest); //
 
 
-        // app.MapGet("/api/tenants", async (
-        //     CancellationToken ct,
-        //     string? search,
-        //     int page = 1,
-        //     int pageSize = 10) =>
-        // {
+        app.MapGet("/api/tenants", async (
+            [AsParameters] GetAllTenantsDto request,
+            [FromServices] IValidator<GetAllTenantsDto> validator,
+            [FromServices] GetAllTenantsHandler handler,
+            CancellationToken ct
+        ) =>
+        {
+            ValidationResult validationResult = await validator.ValidateAsync(request, ct);
 
+            if (!validationResult.IsValid)
+            {
+                return Results.ValidationProblem(validationResult.ToDictionary());
+            }
 
-        // });
+            var command = new GetAllTenantsQuery(
+                request.Search,
+                request.By,
+                request.Page,
+                request.PageSize
+            );
 
+            var tenants = await handler.HandleAsync(command, ct);
+            return Results.Ok(new { Data = tenants }); // 👈 Standardized response format
+        })
+        .WithName("GetAllTenants")
+        .Produces(StatusCodes.Status200OK)
+        .Produces(StatusCodes.Status400BadRequest);
     }
 }
