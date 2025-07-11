@@ -62,19 +62,21 @@ public class Tenant : BaseEntity, IAggregateRoot
     }
 
     public void Update(
-        string name,
-        string license,
-        string phone,
-        string registeredTo,
-        string tin,
-        string address)
+        string? name = null,
+        string? license = null,
+        string? phone = null,
+        string? registeredTo = null,
+        string? tin = null,
+        string? address = null)
     {
-        Name = name;
-        License = license;
-        Phone = phone;
-        RegisteredTo = registeredTo;
-        TIN = tin;
-        Address = address;
+        if (!string.IsNullOrWhiteSpace(name)) Name = name;
+        if (!string.IsNullOrWhiteSpace(license)) License = license;
+        if (!string.IsNullOrWhiteSpace(phone)) Phone = phone;
+        if (!string.IsNullOrWhiteSpace(registeredTo)) RegisteredTo = registeredTo;
+        if (!string.IsNullOrWhiteSpace(tin)) TIN = tin;
+        if (!string.IsNullOrWhiteSpace(address)) Address = address;
+
         UpdatedAt = DateTime.UtcNow;
     }
+
 }

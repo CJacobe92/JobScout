@@ -1,13 +1,14 @@
+using Application.Tenants.Queries.GetAllTenants;
 using FluentValidation;
 
 namespace Application.Tenants.Validators.GetAllTenants;
 
-public class GetAllTenantsDtoValidator : AbstractValidator<GetAllTenantsDto>
+public class GetAllTenantsValidator : AbstractValidator<GetAllTenantsQuery>
 {
     private const int MaxPageSize = 100;
     private static readonly string[] AllowedFields = ["name", "registeredto", "license"];
 
-    public GetAllTenantsDtoValidator()
+    public GetAllTenantsValidator()
     {
         RuleFor(x => x.Search)
             .MaximumLength(100)

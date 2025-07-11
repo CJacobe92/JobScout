@@ -6,6 +6,7 @@ using Application.Tenants.Validators.GetAllTenants;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Application.Tenants.Queries.GetAllTenants;
+using MediatR;
 
 
 namespace Api;
@@ -15,30 +16,20 @@ public static class TenantEndpoints
     public static void MapTenantEndpoints(this WebApplication app)
     {
         app.MapPost("/api/tenants", async (
-            [FromBody] CreateTenantDto request,
-            [FromServices] IValidator<CreateTenantDto> validator, // <--- Inject the validator
-            [FromServices] CreateTenantHandler handler,
+            [FromBody] CreateTenantCommand command,
+            [FromServices] IValidator<CreateTenantCommand> validator,
+            [FromServices] IMediator mediator,
             CancellationToken ct
             ) =>
         {
-            // Perform manual validation
-            ValidationResult validationResult = await validator.ValidateAsync(request, ct);
+            ValidationResult validationResult = await validator.ValidateAsync(command, ct);
 
             if (!validationResult.IsValid)
             {
                 return Results.ValidationProblem(validationResult.ToDictionary());
             }
 
-            var command = new CreateTenantCommand(
-                request.Name,
-                request.License,
-                request.Phone,
-                request.RegisteredTo,
-                request.TIN,
-                request.Address
-            );
-
-            var tenant = await handler.HandleAsync(command, ct);
+            var tenant = await mediator.Send(command, ct);
             return Results.Created($"/tenants/{tenant}", new { Data = tenant });
         })
         .WithName("CreateTenant")
@@ -47,27 +38,20 @@ public static class TenantEndpoints
 
 
         app.MapGet("/api/tenants", async (
-            [AsParameters] GetAllTenantsDto request,
-            [FromServices] IValidator<GetAllTenantsDto> validator,
-            [FromServices] GetAllTenantsHandler handler,
+            [AsParameters] GetAllTenantsQuery query,
+            [FromServices] IValidator<GetAllTenantsQuery> validator,
+            [FromServices] IMediator mediator,
             CancellationToken ct
         ) =>
         {
-            ValidationResult validationResult = await validator.ValidateAsync(request, ct);
+            ValidationResult validationResult = await validator.ValidateAsync(query, ct);
 
             if (!validationResult.IsValid)
             {
                 return Results.ValidationProblem(validationResult.ToDictionary());
             }
 
-            var command = new GetAllTenantsQuery(
-                request.Search,
-                request.By,
-                request.Page,
-                request.PageSize
-            );
-
-            var tenants = await handler.HandleAsync(command, ct);
+            var tenants = await mediator.Send(query, ct);
             return Results.Ok(new { Data = tenants }); // 👈 Standardized response format
         })
         .WithName("GetAllTenants")

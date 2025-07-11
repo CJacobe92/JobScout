@@ -4,6 +4,7 @@ using Domain.Entities;
 using Domain.Repositories;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Shared.SeedWork;
 
 namespace Infrastructure.Repositories;
 
@@ -34,12 +35,34 @@ public class TenantRepository(AppDbContext context) : ITenantRepository
         return tenant;
     }
 
-    public async Task<IEnumerable<Tenant>> GetAllAsync(
-        string? search = null,
-        string? by = null,
-        int page = 1,
-        int pageSize = 10,
-        CancellationToken ct = default)
+    public async Task<Tenant> UpdateAsync(
+    Guid id,
+    string? name = null,
+    string? license = null,
+    string? phone = null,
+    string? registeredTo = null,
+    string? tin = null,
+    string? address = null,
+    CancellationToken ct = default)
+    {
+        var tenant = await FindAsync(id, ct)
+            ?? throw new ArgumentException($"Tenant with id {id} not found");
+
+        tenant.Update(name, license, phone, registeredTo, tin, address);
+
+        _context.Tenants.Update(tenant);
+        await _context.SaveChangesAsync(ct);
+
+        return tenant;
+    }
+
+
+    public async Task<PaginatedResult<Tenant>> GetAllAsync(
+    string? search = null,
+    string? by = null,
+    int page = 1,
+    int pageSize = 10,
+    CancellationToken ct = default)
     {
         var dbQuery = _context.Tenants.AsNoTracking();
 
@@ -53,7 +76,7 @@ public class TenantRepository(AppDbContext context) : ITenantRepository
                     EF.Functions.ILike(t.RegisteredTo, $"%{search}%")),
                 "license" => dbQuery.Where(t =>
                     EF.Functions.ILike(t.License, $"%{search}%")),
-                _ => dbQuery.Where(t => // fallback: search across all three
+                _ => dbQuery.Where(t =>
                     EF.Functions.ILike(t.Name, $"%{search}%") ||
                     EF.Functions.ILike(t.RegisteredTo, $"%{search}%") ||
                     EF.Functions.ILike(t.License, $"%{search}%"))
@@ -62,11 +85,13 @@ public class TenantRepository(AppDbContext context) : ITenantRepository
 
         dbQuery = dbQuery.OrderBy(t => t.Name);
 
-        var tenants = await dbQuery
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
-            .ToListAsync(ct);
+        return await dbQuery.ToPaginatedResultAsync(page, pageSize, ct);
+    }
 
-        return tenants;
+    private async Task<Tenant> FindAsync(Guid id, CancellationToken ct)
+    {
+        var result = await _context.Tenants.FirstOrDefaultAsync(t => t.Id == id, ct)
+            ?? throw new ArgumentException($"Tenant with id:{id} not found");
+        return result;
     }
 }

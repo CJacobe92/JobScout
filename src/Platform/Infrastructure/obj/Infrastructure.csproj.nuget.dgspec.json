@@ -53,7 +53,12 @@
             },
             "Microsoft.Extensions.Logging": {
               "target": "Package",
-              "version": "[9.0.7, )",
+              "version": "[8.0.1, )",
+              "versionCentrallyManaged": true
+            },
+            "mediatR": {
+              "target": "Package",
+              "version": "[13.0.0, )",
               "versionCentrallyManaged": true
             }
           },
@@ -61,7 +66,7 @@
             "Confluent.Kafka": "[2.3.0, )",
             "FluentValidation": "[12.0.0, )",
             "FluentValidation.DependencyInjectionExtensions": "[12.0.0, )",
-            "MediatR": "[12.5.0, )",
+            "mediatR": "[13.0.0, )",
             "MediatR.Extensions.Microsoft.DependencyInjection": "[12.0.1, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.17, )",
             "Microsoft.EntityFrameworkCore": "[8.0.17, )",
@@ -71,11 +76,11 @@
             "Microsoft.Extensions.Configuration": "[8.0.0, )",
             "Microsoft.Extensions.Configuration.Json": "[8.0.1, )",
             "Microsoft.Extensions.Hosting": "[8.0.0, )",
-            "Microsoft.Extensions.Logging": "[9.0.7, )",
+            "Microsoft.Extensions.Logging": "[8.0.1, )",
             "Microsoft.Extensions.Options": "[8.0.2, )",
             "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
             "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )",
-            "Serilog.AspNetCore": "[9.0.0, )",
+            "Serilog.AspNetCore": "[8.0.3, )",
             "Serilog.Sinks.Console": "[6.0.0, )",
             "Serilog.Sinks.File": "[7.0.0, )",
             "StackExchange.Redis": "[2.8.41, )",
@@ -252,7 +257,7 @@
             "Confluent.Kafka": "[2.3.0, )",
             "FluentValidation": "[12.0.0, )",
             "FluentValidation.DependencyInjectionExtensions": "[12.0.0, )",
-            "MediatR": "[12.5.0, )",
+            "mediatR": "[13.0.0, )",
             "MediatR.Extensions.Microsoft.DependencyInjection": "[12.0.1, )",
             "Microsoft.AspNetCore.OpenApi": "[8.0.17, )",
             "Microsoft.EntityFrameworkCore": "[8.0.17, )",
@@ -262,11 +267,11 @@
             "Microsoft.Extensions.Configuration": "[8.0.0, )",
             "Microsoft.Extensions.Configuration.Json": "[8.0.1, )",
             "Microsoft.Extensions.Hosting": "[8.0.0, )",
-            "Microsoft.Extensions.Logging": "[9.0.7, )",
+            "Microsoft.Extensions.Logging": "[8.0.1, )",
             "Microsoft.Extensions.Options": "[8.0.2, )",
             "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
             "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )",
-            "Serilog.AspNetCore": "[9.0.0, )",
+            "Serilog.AspNetCore": "[8.0.3, )",
             "Serilog.Sinks.Console": "[6.0.0, )",
             "Serilog.Sinks.File": "[7.0.0, )",
             "StackExchange.Redis": "[2.8.41, )",
@@ -301,6 +306,7 @@
         "packagesPath": "/home/cjadmin/.nuget/packages/",
         "outputPath": "/home/cjadmin/Projects/JobScout/src/Platform/Shared/obj/",
         "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
         "configFilePaths": [
           "/home/cjadmin/.nuget/NuGet/NuGet.Config"
         ],
@@ -325,6 +331,37 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.17, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "Confluent.Kafka": "[2.3.0, )",
+            "FluentValidation": "[12.0.0, )",
+            "FluentValidation.DependencyInjectionExtensions": "[12.0.0, )",
+            "mediatR": "[13.0.0, )",
+            "MediatR.Extensions.Microsoft.DependencyInjection": "[12.0.1, )",
+            "Microsoft.AspNetCore.OpenApi": "[8.0.17, )",
+            "Microsoft.EntityFrameworkCore": "[8.0.17, )",
+            "Microsoft.EntityFrameworkCore.Design": "[8.0.17, )",
+            "Microsoft.EntityFrameworkCore.Relational": "[8.0.17, )",
+            "Microsoft.EntityFrameworkCore.Tools": "[8.0.17, )",
+            "Microsoft.Extensions.Configuration": "[8.0.0, )",
+            "Microsoft.Extensions.Configuration.Json": "[8.0.1, )",
+            "Microsoft.Extensions.Hosting": "[8.0.0, )",
+            "Microsoft.Extensions.Logging": "[8.0.1, )",
+            "Microsoft.Extensions.Options": "[8.0.2, )",
+            "Microsoft.Extensions.Options.ConfigurationExtensions": "[8.0.0, )",
+            "Npgsql.EntityFrameworkCore.PostgreSQL": "[8.0.11, )",
+            "Serilog.AspNetCore": "[8.0.3, )",
+            "Serilog.Sinks.Console": "[6.0.0, )",
+            "Serilog.Sinks.File": "[7.0.0, )",
+            "StackExchange.Redis": "[2.8.41, )",
+            "Swashbuckle.AspNetCore": "[6.6.2, )"
+          },
           "imports": [
             "net461",
             "net462",

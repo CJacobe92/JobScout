@@ -1,17 +1,27 @@
 {
   "version": 2,
-  "dgSpecHash": "gB0eoV8KA1iweQfMP26u44TRKDhLIBiihFmppvlQupODQhR3cVkLSSeCYxcB7NMPgCRZuf3heh/YxcN80a3Xow==",
+  "dgSpecHash": "xRRiqbJCFRwKO1wSvAkKS7F6l6tk98p5lJO7tqY+4U8vRQ7hFsD0jLvYEM5/HZ7NgW1eF2kCmRFJfgXhP32pDA==",
   "success": true,
   "projectFilePath": "/home/cjadmin/Projects/JobScout/src/Platform/Application/Application.csproj",
   "expectedPackageFiles": [
     "/home/cjadmin/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512",
-    "/home/cjadmin/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.7/microsoft.extensions.dependencyinjection.9.0.7.nupkg.sha512",
-    "/home/cjadmin/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.7/microsoft.extensions.dependencyinjection.abstractions.9.0.7.nupkg.sha512",
-    "/home/cjadmin/.nuget/packages/microsoft.extensions.logging/9.0.7/microsoft.extensions.logging.9.0.7.nupkg.sha512",
-    "/home/cjadmin/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.7/microsoft.extensions.logging.abstractions.9.0.7.nupkg.sha512",
-    "/home/cjadmin/.nuget/packages/microsoft.extensions.options/9.0.7/microsoft.extensions.options.9.0.7.nupkg.sha512",
-    "/home/cjadmin/.nuget/packages/microsoft.extensions.primitives/9.0.7/microsoft.extensions.primitives.9.0.7.nupkg.sha512",
-    "/home/cjadmin/.nuget/packages/system.diagnostics.diagnosticsource/9.0.7/system.diagnostics.diagnosticsource.9.0.7.nupkg.sha512"
+    "/home/cjadmin/.nuget/packages/mediatr/13.0.0/mediatr.13.0.0.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.entityframeworkcore/8.0.17/microsoft.entityframeworkcore.8.0.17.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.17/microsoft.entityframeworkcore.abstractions.8.0.17.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.17/microsoft.entityframeworkcore.analyzers.8.0.17.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.caching.abstractions/8.0.0/microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.caching.memory/8.0.1/microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.1/microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.2/microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.logging/8.0.1/microsoft.extensions.logging.8.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.2/microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.identitymodel.abstractions/8.0.1/microsoft.identitymodel.abstractions.8.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.0.1/microsoft.identitymodel.jsonwebtokens.8.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.identitymodel.logging/8.0.1/microsoft.identitymodel.logging.8.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.identitymodel.tokens/8.0.1/microsoft.identitymodel.tokens.8.0.1.nupkg.sha512"
   ],
   "logs": []
 }
