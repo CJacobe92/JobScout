@@ -10,3 +10,4 @@
 /home/cjadmin/Projects/JobScout/src/Platform/Shared/obj/Debug/net8.0/refint/Shared.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Shared/obj/Debug/net8.0/Shared.pdb
 /home/cjadmin/Projects/JobScout/src/Platform/Shared/obj/Debug/net8.0/ref/Shared.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Shared/obj/Debug/net8.0/Shared.csproj.AssemblyReference.cache

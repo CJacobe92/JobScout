@@ -1,11 +1,12 @@
 using System;
+using Application.Tenants.Commands.CreateTenant;
 using FluentValidation;
 
 namespace Application.Tenants.Validators.CreateTenant;
 
-public class CreateTenantDtoValidator : AbstractValidator<CreateTenantDto>
+public class CreateTenantCommandValidator : AbstractValidator<CreateTenantCommand>
 {
-    public CreateTenantDtoValidator()
+    public CreateTenantCommandValidator()
     {
         RuleFor(x => x.Name)
             .NotEmpty().WithMessage("Tenant name is required.")

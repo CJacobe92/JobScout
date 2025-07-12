@@ -38,3 +38,1384 @@ Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: M
    at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
    at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
 2025-07-11 05:55:20.835 -07:00 [INF] Application is shutting down...
+2025-07-11 09:46:32.468 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 09:46:32.445 -07:00 [ERR] An error occurred using the connection to database 'jobscout_dev' on server 'tcp://localhost:5432'.
+2025-07-11 09:46:32.526 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 09:46:32.527 -07:00 [INF] Hosting environment: Development
+2025-07-11 09:46:32.527 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 09:46:32.554 -07:00 [INF] A transient exception occurred during execution. The operation will be retried after 0ms.
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+2025-07-11 09:46:32.570 -07:00 [ERR] An error occurred using the connection to database 'jobscout_dev' on server 'tcp://localhost:5432'.
+2025-07-11 09:46:32.573 -07:00 [INF] A transient exception occurred during execution. The operation will be retried after 1064ms.
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer.
+ ---> System.Net.Sockets.SocketException (104): Connection reset by peer
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer.
+ ---> System.Net.Sockets.SocketException (104): Connection reset by peer
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+2025-07-11 09:46:33.644 -07:00 [ERR] An error occurred using the connection to database 'jobscout_dev' on server 'tcp://localhost:5432'.
+2025-07-11 09:46:33.648 -07:00 [INF] A transient exception occurred during execution. The operation will be retried after 3284ms.
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer.
+ ---> System.Net.Sockets.SocketException (104): Connection reset by peer
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer.
+ ---> System.Net.Sockets.SocketException (104): Connection reset by peer
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+2025-07-11 09:46:36.948 -07:00 [ERR] An error occurred using the connection to database 'jobscout_dev' on server 'tcp://localhost:5432'.
+2025-07-11 09:46:36.961 -07:00 [INF] A transient exception occurred during execution. The operation will be retried after 7511ms.
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer.
+ ---> System.Net.Sockets.SocketException (104): Connection reset by peer
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer.
+ ---> System.Net.Sockets.SocketException (104): Connection reset by peer
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+2025-07-11 09:46:45.546 -07:00 [ERR] An error occurred using the connection to database 'jobscout_dev' on server 'tcp://localhost:5432'.
+2025-07-11 09:46:45.560 -07:00 [INF] A transient exception occurred during execution. The operation will be retried after 10000ms.
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer.
+ ---> System.Net.Sockets.SocketException (104): Connection reset by peer
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.IOException: Unable to read data from the transport connection: Connection reset by peer.
+ ---> System.Net.Sockets.SocketException (104): Connection reset by peer
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource<System.Int32>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+2025-07-11 09:46:55.574 -07:00 [ERR] An error occurred using the connection to database 'jobscout_dev' on server 'tcp://localhost:5432'.
+2025-07-11 09:46:55.593 -07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Persistence.AppDbContext'.
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (5) was exceeded while executing database operations with 'NpgsqlRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (5) was exceeded while executing database operations with 'NpgsqlRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2025-07-11 09:46:55.614 -07:00 [ERR] BackgroundService failed
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (5) was exceeded while executing database operations with 'NpgsqlRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 25
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2025-07-11 09:46:55.624 -07:00 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+Microsoft.EntityFrameworkCore.Storage.RetryLimitExceededException: The maximum number of retries (5) was exceeded while executing database operations with 'NpgsqlRetryingExecutionStrategy'. See the inner exception for the most recent failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while reading from stream
+ ---> System.IO.EndOfStreamException: Attempted to read past the end of the stream.
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at Npgsql.Internal.NpgsqlReadBuffer.<Ensure>g__EnsureLong|55_0(NpgsqlReadBuffer buffer, Int32 count, Boolean async, Boolean readingNotifications)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|213_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 25
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2025-07-11 09:46:55.626 -07:00 [INF] Application is shutting down...
+2025-07-11 09:58:19.832 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 09:58:19.897 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 09:58:19.898 -07:00 [INF] Hosting environment: Development
+2025-07-11 09:58:19.898 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 09:59:18.159 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=morgan&by=registeredto - null null
+2025-07-11 09:59:18.318 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 09:59:18.357 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 09:59:18.362 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: No service for type 'Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler' has been registered.
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at lambda_method50(Closure, Object, HttpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 09:59:18.392 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=morgan&by=registeredto - 500 null text/plain; charset=utf-8 237.1134ms
+2025-07-11 09:59:28.516 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 1774
+2025-07-11 09:59:28.531 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 09:59:28.632 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 09:59:28.653 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 09:59:28.679 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 09:59:28.686 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 400 null application/problem+json 177.2058ms
+2025-07-11 09:59:28.759 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 1774
+2025-07-11 09:59:28.759 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 09:59:28.763 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 09:59:28.764 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 09:59:28.765 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 09:59:28.766 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 400 null application/problem+json 7.0296ms
+2025-07-11 10:03:10.291 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 186
+2025-07-11 10:03:10.295 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:10.322 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 10:03:10.323 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 10:03:10.325 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:10.325 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 400 null application/problem+json 35.3663ms
+2025-07-11 10:03:22.448 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 187
+2025-07-11 10:03:22.449 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:22.449 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 10:03:22.450 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 10:03:22.450 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:22.450 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 400 null application/problem+json 2.3873ms
+2025-07-11 10:03:29.372 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 189
+2025-07-11 10:03:29.373 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:29.374 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 10:03:29.374 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 10:03:29.374 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:29.374 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 400 null application/problem+json 2.6769ms
+2025-07-11 10:03:34.552 -07:00 [WRN] Retry 1 failed for message "f1025210-2584-4bd5-80d6-e73e094f14ab"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:03:35.203 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 193
+2025-07-11 10:03:35.204 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:35.211 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 10:03:35.212 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 10:03:35.214 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:35.214 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 400 null application/problem+json 11.3725ms
+2025-07-11 10:03:43.776 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 193
+2025-07-11 10:03:43.777 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:43.779 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 10:03:43.780 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 10:03:43.781 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:43.782 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 400 null application/problem+json 5.1533ms
+2025-07-11 10:03:48.068 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 190
+2025-07-11 10:03:48.068 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:48.069 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 10:03:48.077 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 10:03:48.077 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:48.077 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 400 null application/problem+json 9.6901ms
+2025-07-11 10:03:53.279 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 187
+2025-07-11 10:03:53.279 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:53.280 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 10:03:53.281 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 10:03:53.281 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:53.281 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 400 null application/problem+json 2.5036ms
+2025-07-11 10:03:58.082 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 184
+2025-07-11 10:03:58.082 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:58.542 -07:00 [INF] Setting HTTP status code 201.
+2025-07-11 10:03:58.560 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 10:03:58.618 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:03:58.648 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 201 null application/json; charset=utf-8 565.6815ms
+2025-07-11 10:04:00.812 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 184
+2025-07-11 10:04:00.813 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:04:00.867 -07:00 [INF] Setting HTTP status code 201.
+2025-07-11 10:04:00.868 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 10:04:00.873 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:04:00.875 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 201 null application/json; charset=utf-8 62.7012ms
+2025-07-11 10:04:01.757 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 184
+2025-07-11 10:04:01.757 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:04:01.761 -07:00 [INF] Setting HTTP status code 201.
+2025-07-11 10:04:01.761 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 10:04:01.762 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:04:01.762 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 201 null application/json; charset=utf-8 4.8246ms
+2025-07-11 10:04:02.626 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 184
+2025-07-11 10:04:02.626 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:04:02.629 -07:00 [INF] Setting HTTP status code 201.
+2025-07-11 10:04:02.629 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 10:04:02.630 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:04:02.632 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 201 null application/json; charset=utf-8 5.3236ms
+2025-07-11 10:04:16.925 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 184
+2025-07-11 10:04:16.926 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:04:16.929 -07:00 [INF] Setting HTTP status code 201.
+2025-07-11 10:04:16.930 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 10:04:16.931 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 10:04:16.931 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 201 null application/json; charset=utf-8 5.9038ms
+2025-07-11 10:08:54.315 -07:00 [WRN] Retry 1 failed for message "b3c08628-3fca-44b6-be49-3de13df57701"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:14:14.325 -07:00 [WRN] Retry 1 failed for message "a6e6e71e-f7b0-4d43-aea5-b2a468bbc0a9"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:19:35.684 -07:00 [WRN] Retry 1 failed for message "e043cf74-536a-4d93-b048-447c1a4a0092"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:24:56.194 -07:00 [WRN] Retry 1 failed for message "dc00b40a-8df2-491d-844e-a410e7a3919d"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:30:16.737 -07:00 [WRN] Retry 1 failed for message "80805544-a47a-4bfd-9a04-9e564b9f7987"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:35:37.383 -07:00 [WRN] Retry 1 failed for message "fb32be30-d5a1-4d4e-9c2f-b9b6a721ce39"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:40:59.414 -07:00 [WRN] Retry 1 failed for message "b0d37706-fa57-4529-8f36-119785a4e4c3"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:46:20.339 -07:00 [WRN] Retry 1 failed for message "d0c19df7-593e-44ce-a54d-fbb5f69c91b6"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:51:41.435 -07:00 [WRN] Retry 1 failed for message "91b26500-1459-421c-b831-7224c92ebfe2"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 10:57:03.873 -07:00 [WRN] Retry 1 failed for message "5044996a-10d1-4714-b2c7-0359d4376c7d"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:02:25.126 -07:00 [WRN] Retry 1 failed for message "6780ef5f-bab1-4995-8638-aa82e2b18d2d"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:07:46.442 -07:00 [WRN] Retry 1 failed for message "f737e74c-63be-48c0-bd51-396483c6de24"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:13:07.836 -07:00 [WRN] Retry 1 failed for message "733bd1aa-8ba5-47c1-814b-8211831722c2"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:18:30.683 -07:00 [WRN] Retry 1 failed for message "6461594d-6796-41ad-b632-b64165fb1ba0"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:23:52.339 -07:00 [WRN] Retry 1 failed for message "1528e4f5-7a7d-4b5f-9746-c5188fcd13ab"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:29:14.012 -07:00 [WRN] Retry 1 failed for message "af09b6e1-26f9-4207-b885-a083440ce0b0"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:34:35.749 -07:00 [WRN] Retry 1 failed for message "b89fbc12-800d-469d-92f8-c63cbafe833d"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:39:58.933 -07:00 [WRN] Retry 1 failed for message "333db0b5-4ed1-427e-b8ea-dc8c79b04863"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:45:20.906 -07:00 [WRN] Retry 1 failed for message "e0e23852-4b53-4a0f-9b6c-a330cae91f91"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:50:44.571 -07:00 [WRN] Retry 2 failed for message "f1025210-2584-4bd5-80d6-e73e094f14ab"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 11:53:31.894 -07:00 [INF] Application is shutting down...
+2025-07-11 12:17:10.820 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 12:17:11.176 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 12:17:11.178 -07:00 [INF] Hosting environment: Development
+2025-07-11 12:17:11.180 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 12:22:34.860 -07:00 [WRN] Retry 2 failed for message "f1025210-2584-4bd5-80d6-e73e094f14ab"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 12:27:57.332 -07:00 [WRN] Retry 2 failed for message "b3c08628-3fca-44b6-be49-3de13df57701"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 12:33:21.354 -07:00 [WRN] Retry 2 failed for message "a6e6e71e-f7b0-4d43-aea5-b2a468bbc0a9"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 12:38:44.071 -07:00 [WRN] Retry 2 failed for message "e043cf74-536a-4d93-b048-447c1a4a0092"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 12:44:06.807 -07:00 [WRN] Retry 2 failed for message "dc00b40a-8df2-491d-844e-a410e7a3919d"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 12:49:29.585 -07:00 [WRN] Retry 2 failed for message "80805544-a47a-4bfd-9a04-9e564b9f7987"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 12:54:53.881 -07:00 [WRN] Retry 2 failed for message "fb32be30-d5a1-4d4e-9c2f-b9b6a721ce39"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 12:55:54.726 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 184
+2025-07-11 12:55:55.584 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 12:55:56.675 -07:00 [INF] Setting HTTP status code 201.
+2025-07-11 12:55:56.727 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 12:55:56.840 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 12:55:56.869 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 201 null application/json; charset=utf-8 2151.6197ms
+2025-07-11 12:55:59.682 -07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 184
+2025-07-11 12:55:59.683 -07:00 [INF] Executing endpoint 'HTTP: POST /api/tenants'
+2025-07-11 12:55:59.743 -07:00 [INF] Setting HTTP status code 201.
+2025-07-11 12:55:59.744 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 12:55:59.746 -07:00 [INF] Executed endpoint 'HTTP: POST /api/tenants'
+2025-07-11 12:55:59.747 -07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5157/api/tenants?search=morgan&by=registeredto - 201 null application/json; charset=utf-8 67.2824ms
+2025-07-11 12:56:03.854 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=morgan&by=registeredto - application/json 184
+2025-07-11 12:56:03.856 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 12:56:04.001 -07:00 [INF] Checking cache with key: tenants:morgan:by:registeredto:page:1:size:10
+2025-07-11 12:56:04.039 -07:00 [INF] Cache miss. Querying repository with key: tenants:morgan:by:registeredto:page:1:size:10
+2025-07-11 12:56:06.657 -07:00 [INF] Set cache for key: tenants:morgan:by:registeredto:page:1:size:10
+2025-07-11 12:56:06.658 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 12:56:06.664 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 12:56:06.678 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 12:56:06.703 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=morgan&by=registeredto - 200 null application/json; charset=utf-8 2849.1552ms
+2025-07-11 13:00:16.855 -07:00 [WRN] Retry 2 failed for message "b0d37706-fa57-4529-8f36-119785a4e4c3"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 13:05:31.903 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants - application/json 184
+2025-07-11 13:05:31.910 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:05:31.933 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:1:size:10
+2025-07-11 13:05:31.954 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:1:size:10
+2025-07-11 13:05:32.192 -07:00 [INF] Set cache for key: tenants:all:by:any:page:1:size:10
+2025-07-11 13:05:32.192 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:05:32.193 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:05:32.195 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:05:32.202 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants - 200 null application/json; charset=utf-8 295.8342ms
+2025-07-11 13:05:39.932 -07:00 [WRN] Retry 2 failed for message "d0c19df7-593e-44ce-a54d-fbb5f69c91b6"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 13:05:46.091 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants - application/json 184
+2025-07-11 13:05:46.094 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:05:46.110 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:1:size:10
+2025-07-11 13:05:46.163 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:05:46.182 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: The JSON value could not be converted to Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 35
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 13:05:46.277 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants - 500 null text/plain; charset=utf-8 186.4385ms
+2025-07-11 13:05:50.979 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants - application/json 184
+2025-07-11 13:05:50.979 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:05:50.980 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:1:size:10
+2025-07-11 13:05:50.981 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:05:50.982 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: The JSON value could not be converted to Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 35
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 13:05:50.984 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants - 500 null text/plain; charset=utf-8 5.4623ms
+2025-07-11 13:06:19.321 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=1 - application/json 184
+2025-07-11 13:06:19.323 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:19.326 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:1:size:10
+2025-07-11 13:06:19.328 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:19.329 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: The JSON value could not be converted to Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 35
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 13:06:19.331 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=1 - 500 null text/plain; charset=utf-8 10.3965ms
+2025-07-11 13:06:23.701 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=10 - application/json 184
+2025-07-11 13:06:23.702 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:23.704 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:10:size:10
+2025-07-11 13:06:23.707 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:10:size:10
+2025-07-11 13:06:23.875 -07:00 [INF] Set cache for key: tenants:all:by:any:page:10:size:10
+2025-07-11 13:06:23.875 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:06:23.875 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:06:23.876 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:23.876 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=10 - 200 null application/json; charset=utf-8 175.0252ms
+2025-07-11 13:06:26.564 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=1 - application/json 184
+2025-07-11 13:06:26.564 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:26.566 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:1:size:10
+2025-07-11 13:06:26.569 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:26.570 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: The JSON value could not be converted to Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 35
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 13:06:26.572 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=1 - 500 null text/plain; charset=utf-8 7.9703ms
+2025-07-11 13:06:30.756 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=2 - application/json 184
+2025-07-11 13:06:30.756 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:30.756 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:2:size:10
+2025-07-11 13:06:30.758 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:2:size:10
+2025-07-11 13:06:30.901 -07:00 [INF] Set cache for key: tenants:all:by:any:page:2:size:10
+2025-07-11 13:06:30.902 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:06:30.902 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:06:30.902 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:30.903 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=2 - 200 null application/json; charset=utf-8 147.11ms
+2025-07-11 13:06:37.965 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=3 - application/json 184
+2025-07-11 13:06:37.967 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:37.969 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:3:size:10
+2025-07-11 13:06:37.972 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:3:size:10
+2025-07-11 13:06:38.143 -07:00 [INF] Set cache for key: tenants:all:by:any:page:3:size:10
+2025-07-11 13:06:38.144 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:06:38.144 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:06:38.144 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:38.145 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=3 - 200 null application/json; charset=utf-8 180.3051ms
+2025-07-11 13:06:40.400 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=4 - application/json 184
+2025-07-11 13:06:40.401 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:40.401 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:4:size:10
+2025-07-11 13:06:40.404 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:4:size:10
+2025-07-11 13:06:40.596 -07:00 [INF] Set cache for key: tenants:all:by:any:page:4:size:10
+2025-07-11 13:06:40.596 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:06:40.597 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:06:40.597 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:40.598 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=4 - 200 null application/json; charset=utf-8 197.3444ms
+2025-07-11 13:06:41.823 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=5 - application/json 184
+2025-07-11 13:06:41.824 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:41.825 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:5:size:10
+2025-07-11 13:06:41.828 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:5:size:10
+2025-07-11 13:06:41.972 -07:00 [INF] Set cache for key: tenants:all:by:any:page:5:size:10
+2025-07-11 13:06:41.972 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:06:41.972 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:06:41.973 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:41.973 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=5 - 200 null application/json; charset=utf-8 150.414ms
+2025-07-11 13:06:43.057 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=6 - application/json 184
+2025-07-11 13:06:43.058 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:43.060 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:6:size:10
+2025-07-11 13:06:43.063 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:6:size:10
+2025-07-11 13:06:43.256 -07:00 [INF] Set cache for key: tenants:all:by:any:page:6:size:10
+2025-07-11 13:06:43.256 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:06:43.257 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:06:43.257 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:43.258 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=6 - 200 null application/json; charset=utf-8 200.8455ms
+2025-07-11 13:06:44.148 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=7 - application/json 184
+2025-07-11 13:06:44.148 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:44.150 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:7:size:10
+2025-07-11 13:06:44.154 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:7:size:10
+2025-07-11 13:06:44.315 -07:00 [INF] Set cache for key: tenants:all:by:any:page:7:size:10
+2025-07-11 13:06:44.316 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:06:44.316 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:06:44.317 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:06:44.317 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=7 - 200 null application/json; charset=utf-8 169.4304ms
+2025-07-11 13:11:03.649 -07:00 [WRN] Retry 2 failed for message "91b26500-1459-421c-b831-7224c92ebfe2"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 13:16:27.574 -07:00 [WRN] Retry 2 failed for message "5044996a-10d1-4714-b2c7-0359d4376c7d"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 13:21:50.733 -07:00 [WRN] Retry 2 failed for message "6780ef5f-bab1-4995-8638-aa82e2b18d2d"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 13:25:44.635 -07:00 [INF] Application is shutting down...
+2025-07-11 13:33:38.929 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 13:33:41.865 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 13:33:41.901 -07:00 [INF] Hosting environment: Development
+2025-07-11 13:33:41.903 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 13:37:35.957 -07:00 [INF] Application is shutting down...
+2025-07-11 13:38:39.519 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 13:38:39.589 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 13:38:39.589 -07:00 [INF] Hosting environment: Development
+2025-07-11 13:38:39.590 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 13:38:44.794 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=7 - application/json 184
+2025-07-11 13:38:45.803 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:38:46.009 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:7:size:10
+2025-07-11 13:38:46.015 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:7:size:10
+2025-07-11 13:38:46.543 -07:00 [INF] Set cache for key: tenants:all:by:any:page:7:size:10
+2025-07-11 13:38:46.545 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:38:46.559 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:38:46.641 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:38:46.672 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=7 - 200 null application/json; charset=utf-8 1051.1813ms
+2025-07-11 13:39:04.334 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=7&pageSize=100 - application/json 184
+2025-07-11 13:39:04.351 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:39:04.411 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:7:size:100
+2025-07-11 13:39:04.437 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:7:size:100
+2025-07-11 13:39:04.783 -07:00 [INF] Set cache for key: tenants:all:by:any:page:7:size:100
+2025-07-11 13:39:04.785 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:39:04.786 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:39:04.792 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:39:04.793 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=7&pageSize=100 - 200 null application/json; charset=utf-8 466.1584ms
+2025-07-11 13:39:22.349 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=10&pageSize=100 - application/json 184
+2025-07-11 13:39:22.372 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:39:22.422 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:10:size:100
+2025-07-11 13:39:22.436 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:10:size:100
+2025-07-11 13:39:22.640 -07:00 [INF] Set cache for key: tenants:all:by:any:page:10:size:100
+2025-07-11 13:39:22.641 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:39:22.641 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:39:22.648 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:39:22.649 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=10&pageSize=100 - 200 null application/json; charset=utf-8 306.946ms
+2025-07-11 13:44:04.939 -07:00 [WRN] Retry 2 failed for message "f1025210-2584-4bd5-80d6-e73e094f14ab"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 13:48:17.777 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - application/json 184
+2025-07-11 13:48:17.794 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:48:17.836 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:2:size:100
+2025-07-11 13:48:17.842 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:2:size:100
+2025-07-11 13:48:18.283 -07:00 [INF] Set cache for key: tenants:all:by:any:page:2:size:100
+2025-07-11 13:48:18.284 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:48:18.284 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:48:18.290 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:48:18.290 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - 200 null application/json; charset=utf-8 518.7595ms
+2025-07-11 13:49:28.340 -07:00 [WRN] Retry 2 failed for message "b3c08628-3fca-44b6-be49-3de13df57701"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 13:51:24.465 -07:00 [INF] Application is shutting down...
+2025-07-11 13:53:14.197 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 13:53:14.368 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 13:53:14.370 -07:00 [INF] Hosting environment: Development
+2025-07-11 13:53:14.370 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 13:53:26.617 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - application/json 184
+2025-07-11 13:53:27.226 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:53:28.086 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:2:size:100
+2025-07-11 13:53:28.137 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:2:size:100
+2025-07-11 13:53:31.258 -07:00 [INF] Set cache for key: tenants:all:by:any:page:2:size:100
+2025-07-11 13:53:31.334 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 13:53:31.452 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 13:53:31.679 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:53:31.887 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - 200 null application/json; charset=utf-8 3664.9784ms
+2025-07-11 13:53:36.151 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - application/json 184
+2025-07-11 13:53:36.194 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:53:36.241 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:2:size:100
+2025-07-11 13:53:36.437 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:53:36.484 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: The JSON value could not be converted to Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 35
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 13:53:36.704 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - 500 null text/plain; charset=utf-8 578.7029ms
+2025-07-11 13:53:40.999 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - application/json 184
+2025-07-11 13:53:41.040 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:53:41.082 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:2:size:100
+2025-07-11 13:53:41.150 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 13:53:41.162 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: The JSON value could not be converted to Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 35
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 13:53:41.357 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - 500 null text/plain; charset=utf-8 360.2363ms
+2025-07-11 14:08:43.299 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 14:08:43.362 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 14:08:43.364 -07:00 [INF] Hosting environment: Development
+2025-07-11 14:08:43.364 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 14:09:12.730 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - application/json 184
+2025-07-11 14:09:12.979 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:09:13.311 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:2:size:100
+2025-07-11 14:09:13.333 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:2:size:100
+2025-07-11 14:09:14.829 -07:00 [INF] Set cache for key: tenants:all:by:any:page:2:size:100
+2025-07-11 14:09:14.843 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:09:14.932 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:09:15.057 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:09:15.113 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=100 - 200 null application/json; charset=utf-8 2384.4421ms
+2025-07-11 14:09:28.831 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=10 - application/json 184
+2025-07-11 14:09:28.831 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:09:28.833 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:2:size:10
+2025-07-11 14:09:28.835 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:2:size:10
+2025-07-11 14:09:29.008 -07:00 [INF] Set cache for key: tenants:all:by:any:page:2:size:10
+2025-07-11 14:09:29.008 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:09:29.008 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:09:29.009 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:09:29.010 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=10 - 200 null application/json; charset=utf-8 179.3372ms
+2025-07-11 14:10:04.257 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=20 - application/json 184
+2025-07-11 14:10:04.259 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:10:04.275 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:2:size:20
+2025-07-11 14:10:04.279 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:2:size:20
+2025-07-11 14:10:04.533 -07:00 [INF] Set cache for key: tenants:all:by:any:page:2:size:20
+2025-07-11 14:10:04.534 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:10:04.534 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:10:04.536 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:10:04.537 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=2&pageSize=20 - 200 null application/json; charset=utf-8 280.4432ms
+2025-07-11 14:10:33.297 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:10:33.302 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:10:33.306 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:10:33.314 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:10:33.989 -07:00 [INF] Set cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:10:33.990 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:10:33.990 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:10:33.993 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:10:33.996 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 200 null application/json; charset=utf-8 699.3528ms
+2025-07-11 14:11:04.359 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:11:04.360 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:11:04.362 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:11:04.385 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:11:04.388 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: The JSON value could not be converted to Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 35
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 14:11:04.439 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 500 null text/plain; charset=utf-8 79.3688ms
+2025-07-11 14:12:33.760 -07:00 [INF] Application is shutting down...
+2025-07-11 14:16:03.277 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 14:16:03.368 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 14:16:03.370 -07:00 [INF] Hosting environment: Development
+2025-07-11 14:16:03.370 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 14:16:06.097 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:16:06.184 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:16:06.328 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:16:06.334 -07:00 [INF] Cache miss. Querying repository with key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:16:07.057 -07:00 [INF] Set cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:16:07.059 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:16:07.074 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:16:07.138 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:16:07.155 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 200 null application/json; charset=utf-8 1059.9616ms
+2025-07-11 14:16:10.491 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:16:10.493 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:16:10.499 -07:00 [INF] Checking cache with key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:16:10.543 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:16:10.552 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: The JSON value could not be converted to Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]. Path: $ | LineNumber: 0 | BytePositionInLine: 1.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 35
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 14:16:10.600 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 500 null text/plain; charset=utf-8 110.5994ms
+2025-07-11 14:20:14.907 -07:00 [INF] Application is shutting down...
+2025-07-11 14:21:15.977 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 14:21:16.032 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 14:21:16.032 -07:00 [INF] Hosting environment: Development
+2025-07-11 14:21:16.032 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 14:21:19.644 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:21:19.823 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:21:20.222 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:21:21.885 -07:00 [INF] Cached tenants for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:21:21.891 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:21:21.906 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:21:21.937 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:21:21.949 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 200 null application/json; charset=utf-8 2309.9902ms
+2025-07-11 14:21:26.019 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:21:26.020 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:21:26.026 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:21:26.068 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:21:26.086 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Each parameter in the deserialization constructor on type 'Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]' must bind to an object property or field on deserialization. Each parameter name must match with a property or field on the object. Fields are only considered when 'JsonSerializerOptions.IncludeFields' is enabled. The match can be case-insensitive.
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ConstructorParameterIncompleteBinding(Type parentType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.TryGetCachedResultAsync(String key, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 59
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 28
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 14:21:26.177 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 500 null text/plain; charset=utf-8 158.7717ms
+2025-07-11 14:21:31.623 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:21:31.625 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:21:31.638 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:21:31.649 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:21:31.653 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Each parameter in the deserialization constructor on type 'Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]' must bind to an object property or field on deserialization. Each parameter name must match with a property or field on the object. Fields are only considered when 'JsonSerializerOptions.IncludeFields' is enabled. The match can be case-insensitive.
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ConstructorParameterIncompleteBinding(Type parentType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.TryGetCachedResultAsync(String key, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 59
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 28
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 14:21:31.670 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 500 null text/plain; charset=utf-8 47.216ms
+2025-07-11 14:23:14.662 -07:00 [INF] Application is shutting down...
+2025-07-11 14:25:43.252 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 14:25:43.314 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 14:25:43.314 -07:00 [INF] Hosting environment: Development
+2025-07-11 14:25:43.315 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 14:25:46.450 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:25:46.557 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:25:46.784 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:25:46.837 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:25:46.842 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Each parameter in the deserialization constructor on type 'Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]' must bind to an object property or field on deserialization. Each parameter name must match with a property or field on the object. Fields are only considered when 'JsonSerializerOptions.IncludeFields' is enabled. The match can be case-insensitive.
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ConstructorParameterIncompleteBinding(Type parentType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.TryGetCachedResultAsync(String key, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 59
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 28
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 14:25:46.897 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 500 null text/plain; charset=utf-8 443.212ms
+2025-07-11 14:25:48.989 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:25:48.991 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:25:48.997 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:25:49.005 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:25:49.006 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Each parameter in the deserialization constructor on type 'Shared.SeedWork.PaginatedResult`1[Application.Tenants.ViewModels.TenantViewModel]' must bind to an object property or field on deserialization. Each parameter name must match with a property or field on the object. Fields are only considered when 'JsonSerializerOptions.IncludeFields' is enabled. The match can be case-insensitive.
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ConstructorParameterIncompleteBinding(Type parentType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, T& value, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.Deserialize(Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 utf8Json, JsonTypeInfo`1 jsonTypeInfo, Nullable`1 actualByteCount)
+   at System.Text.Json.JsonSerializer.ReadFromSpan[TValue](ReadOnlySpan`1 json, JsonTypeInfo`1 jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.Deserialize[TValue](String json, JsonSerializerOptions options)
+   at Infrastructure.Redis.RedisCacheService.GetAsync[T](String key, CancellationToken cancellationToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Redis/RedisCacheService.cs:line 31
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.TryGetCachedResultAsync(String key, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 59
+   at Application.Tenants.Queries.GetAllTenants.GetAllTenantsHandler.Handle(GetAllTenantsQuery query, CancellationToken ct) in /home/cjadmin/Projects/JobScout/src/Platform/Application/Tenants/Queries/GetAllTenants/GetAllTenantsHandler.cs:line 28
+   at Api.TenantEndpoints.<>c.<<MapTenantEndpoints>b__0_1>d.MoveNext() in /home/cjadmin/Projects/JobScout/src/Platform/Api/TenantEndpoint.cs:line 54
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-07-11 14:25:49.017 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 500 null text/plain; charset=utf-8 29.5802ms
+2025-07-11 14:31:07.405 -07:00 [WRN] Retry 2 failed for message "f1025210-2584-4bd5-80d6-e73e094f14ab"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 14:34:06.347 -07:00 [INF] Application is shutting down...
+2025-07-11 14:35:57.937 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 14:35:57.984 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 14:35:57.985 -07:00 [INF] Hosting environment: Development
+2025-07-11 14:35:57.985 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 14:36:05.549 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:36:05.688 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:05.838 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:06.788 -07:00 [INF] Cached tenants for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:06.791 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:36:06.799 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:36:06.823 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:06.846 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 200 null application/json; charset=utf-8 1298.1983ms
+2025-07-11 14:36:09.555 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:36:09.556 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:09.559 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:09.586 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:09.586 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:36:09.587 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:36:09.588 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:09.588 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 200 null application/json; charset=utf-8 34.1991ms
+2025-07-11 14:36:10.470 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:36:10.471 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:10.476 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:10.485 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:10.486 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:36:10.488 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:36:10.491 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:10.491 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 200 null application/json; charset=utf-8 21.0761ms
+2025-07-11 14:36:11.265 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:36:11.266 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:11.269 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:11.280 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:11.281 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:36:11.282 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:36:11.283 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:11.285 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 200 null application/json; charset=utf-8 19.767ms
+2025-07-11 14:36:11.994 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - application/json 184
+2025-07-11 14:36:11.996 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:11.999 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:12.010 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:24000:size:20
+2025-07-11 14:36:12.013 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:36:12.013 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:36:12.015 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:36:12.016 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000&pageSize=20 - 200 null application/json; charset=utf-8 21.851ms
+2025-07-11 14:38:54.297 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants - application/json 184
+2025-07-11 14:38:54.300 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:38:54.311 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:1:size:10
+2025-07-11 14:38:54.626 -07:00 [INF] Cached tenants for key: tenants:all:by:any:page:1:size:10
+2025-07-11 14:38:54.627 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:38:54.627 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:38:54.628 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:38:54.630 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants - 200 null application/json; charset=utf-8 333.2738ms
+2025-07-11 14:38:56.758 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants - application/json 184
+2025-07-11 14:38:56.760 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:38:56.761 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:1:size:10
+2025-07-11 14:38:56.767 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:1:size:10
+2025-07-11 14:38:56.767 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:38:56.767 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:38:56.768 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:38:56.768 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants - 200 null application/json; charset=utf-8 9.8015ms
+2025-07-11 14:38:57.820 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants - application/json 184
+2025-07-11 14:38:57.821 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:38:57.822 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:1:size:10
+2025-07-11 14:38:57.827 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:1:size:10
+2025-07-11 14:38:57.827 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:38:57.827 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:38:57.828 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:38:57.829 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants - 200 null application/json; charset=utf-8 7.6422ms
+2025-07-11 14:39:05.257 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants - application/json 184
+2025-07-11 14:39:05.259 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:05.261 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:1:size:10
+2025-07-11 14:39:05.268 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:1:size:10
+2025-07-11 14:39:05.270 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:39:05.272 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:39:05.274 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:05.275 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants - 200 null application/json; charset=utf-8 17.7106ms
+2025-07-11 14:39:11.525 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=2 - application/json 184
+2025-07-11 14:39:11.525 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:11.527 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:2:size:10
+2025-07-11 14:39:11.651 -07:00 [INF] Cached tenants for key: tenants:all:by:any:page:2:size:10
+2025-07-11 14:39:11.651 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:39:11.651 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:39:11.651 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:11.651 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=2 - 200 null application/json; charset=utf-8 126.7223ms
+2025-07-11 14:39:14.299 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=3 - application/json 184
+2025-07-11 14:39:14.300 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:14.301 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:3:size:10
+2025-07-11 14:39:14.423 -07:00 [INF] Cached tenants for key: tenants:all:by:any:page:3:size:10
+2025-07-11 14:39:14.423 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:39:14.424 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:39:14.424 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:14.425 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=3 - 200 null application/json; charset=utf-8 125.9536ms
+2025-07-11 14:39:15.930 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000 - application/json 184
+2025-07-11 14:39:15.931 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:15.932 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:24000:size:10
+2025-07-11 14:39:16.390 -07:00 [INF] Cached tenants for key: tenants:all:by:any:page:24000:size:10
+2025-07-11 14:39:16.390 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:39:16.390 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:39:16.390 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:16.391 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=24000 - 200 null application/json; charset=utf-8 460.2289ms
+2025-07-11 14:39:21.471 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - application/json 184
+2025-07-11 14:39:21.472 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:21.473 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 14:39:21.922 -07:00 [INF] Cached tenants for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 14:39:21.922 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 14:39:21.923 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 14:39:21.923 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 14:39:21.923 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - 200 null application/json; charset=utf-8 452.2852ms
+2025-07-11 14:41:22.029 -07:00 [WRN] Retry 2 failed for message "f1025210-2584-4bd5-80d6-e73e094f14ab"
+Confluent.Kafka.ProduceException`2[Confluent.Kafka.Null,System.String]: Local: Message timed out
+   at Confluent.Kafka.Producer`2.ProduceAsync(TopicPartition topicPartition, Message`2 message, CancellationToken cancellationToken)
+   at Infrastructure.Outbox.OutboxProcessor.ExecuteAsync(CancellationToken stoppingToken) in /home/cjadmin/Projects/JobScout/src/Platform/Infrastructure/Outbox/OutboxProcessor.cs:line 38
+2025-07-11 14:42:34.934 -07:00 [INF] Application is shutting down...
+2025-07-11 14:53:10.216 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 14:53:10.343 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 14:53:10.344 -07:00 [INF] Hosting environment: Development
+2025-07-11 14:53:10.344 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 14:59:53.745 -07:00 [INF] Now listening on: http://localhost:5157
+2025-07-11 14:59:53.973 -07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-11 14:59:53.975 -07:00 [INF] Hosting environment: Development
+2025-07-11 14:59:53.975 -07:00 [INF] Content root path: /home/cjadmin/Projects/JobScout/src/Platform/Api
+2025-07-11 15:00:04.792 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - application/json 184
+2025-07-11 15:00:04.913 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:04.959 -07:00 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2025-07-11 15:00:05.199 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 15:00:07.944 -07:00 [INF] Cached tenants for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 15:00:07.955 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:00:07.981 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:00:08.099 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:08.154 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - 200 null application/json; charset=utf-8 3363.2074ms
+2025-07-11 15:00:09.363 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - application/json 184
+2025-07-11 15:00:09.364 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:09.368 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 15:00:09.430 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 15:00:09.431 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:00:09.433 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:00:09.437 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:09.444 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - 200 null application/json; charset=utf-8 81.4541ms
+2025-07-11 15:00:11.398 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - application/json 184
+2025-07-11 15:00:11.399 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:11.422 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 15:00:11.441 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 15:00:11.442 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:00:11.444 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:00:11.446 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:11.448 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - 200 null application/json; charset=utf-8 49.8014ms
+2025-07-11 15:00:13.110 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - application/json 184
+2025-07-11 15:00:13.114 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:13.118 -07:00 [INF] Checking cache for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 15:00:13.130 -07:00 [INF] Cache hit for key: tenants:all:by:any:page:25225:size:10
+2025-07-11 15:00:13.132 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:00:13.134 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:00:13.137 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:13.138 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?page=25225 - 200 null application/json; charset=utf-8 27.9647ms
+2025-07-11 15:00:21.430 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=Troy - application/json 184
+2025-07-11 15:00:21.432 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:21.478 -07:00 [INF] Setting HTTP status code 400.
+2025-07-11 15:00:21.534 -07:00 [INF] Writing value of type 'HttpValidationProblemDetails' as Json.
+2025-07-11 15:00:21.564 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:21.567 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=Troy - 400 null application/problem+json 136.5883ms
+2025-07-11 15:00:32.135 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=Troy&by=name - application/json 184
+2025-07-11 15:00:32.136 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:32.140 -07:00 [INF] Checking cache for key: tenants:Troy:by:name:page:1:size:10
+2025-07-11 15:00:32.374 -07:00 [INF] Cached tenants for key: tenants:Troy:by:name:page:1:size:10
+2025-07-11 15:00:32.374 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:00:32.375 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:00:32.376 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:32.376 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=Troy&by=name - 200 null application/json; charset=utf-8 241.9046ms
+2025-07-11 15:00:41.425 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=Troy&by=registeredto - application/json 184
+2025-07-11 15:00:41.426 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:41.429 -07:00 [INF] Checking cache for key: tenants:Troy:by:registeredto:page:1:size:10
+2025-07-11 15:00:41.656 -07:00 [INF] Cached tenants for key: tenants:Troy:by:registeredto:page:1:size:10
+2025-07-11 15:00:41.657 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:00:41.657 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:00:41.657 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:41.658 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=Troy&by=registeredto - 200 null application/json; charset=utf-8 232.6992ms
+2025-07-11 15:00:47.186 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=troy&by=registeredto - application/json 184
+2025-07-11 15:00:47.187 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:47.189 -07:00 [INF] Checking cache for key: tenants:troy:by:registeredto:page:1:size:10
+2025-07-11 15:00:47.210 -07:00 [INF] Cached tenants for key: tenants:troy:by:registeredto:page:1:size:10
+2025-07-11 15:00:47.210 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:00:47.211 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:00:47.213 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:47.215 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=troy&by=registeredto - 200 null application/json; charset=utf-8 27.5797ms
+2025-07-11 15:00:54.979 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=TROY&by=registeredto - application/json 184
+2025-07-11 15:00:54.980 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:54.981 -07:00 [INF] Checking cache for key: tenants:TROY:by:registeredto:page:1:size:10
+2025-07-11 15:00:55.001 -07:00 [INF] Cached tenants for key: tenants:TROY:by:registeredto:page:1:size:10
+2025-07-11 15:00:55.004 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:00:55.005 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:00:55.006 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:00:55.006 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=TROY&by=registeredto - 200 null application/json; charset=utf-8 27.799ms
+2025-07-11 15:01:01.004 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=TROY&by=license - application/json 184
+2025-07-11 15:01:01.004 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:01.005 -07:00 [INF] Checking cache for key: tenants:TROY:by:license:page:1:size:10
+2025-07-11 15:01:01.059 -07:00 [INF] Cached tenants for key: tenants:TROY:by:license:page:1:size:10
+2025-07-11 15:01:01.060 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:01.060 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:01.060 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:01.060 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=TROY&by=license - 200 null application/json; charset=utf-8 56.758ms
+2025-07-11 15:01:09.506 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=troy&by=license - application/json 184
+2025-07-11 15:01:09.507 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:09.508 -07:00 [INF] Checking cache for key: tenants:troy:by:license:page:1:size:10
+2025-07-11 15:01:09.530 -07:00 [INF] Cached tenants for key: tenants:troy:by:license:page:1:size:10
+2025-07-11 15:01:09.531 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:09.531 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:09.531 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:09.532 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=troy&by=license - 200 null application/json; charset=utf-8 25.5959ms
+2025-07-11 15:01:14.632 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=troY&by=license - application/json 184
+2025-07-11 15:01:14.632 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:14.633 -07:00 [INF] Checking cache for key: tenants:troY:by:license:page:1:size:10
+2025-07-11 15:01:14.656 -07:00 [INF] Cached tenants for key: tenants:troY:by:license:page:1:size:10
+2025-07-11 15:01:14.656 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:14.656 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:14.657 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:14.658 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=troY&by=license - 200 null application/json; charset=utf-8 25.8849ms
+2025-07-11 15:01:21.176 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=license - application/json 184
+2025-07-11 15:01:21.176 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:21.177 -07:00 [INF] Checking cache for key: tenants:smith:by:license:page:1:size:10
+2025-07-11 15:01:21.203 -07:00 [INF] Cached tenants for key: tenants:smith:by:license:page:1:size:10
+2025-07-11 15:01:21.204 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:21.205 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:21.206 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:21.207 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=license - 200 null application/json; charset=utf-8 31.4975ms
+2025-07-11 15:01:24.257 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=name - application/json 184
+2025-07-11 15:01:24.257 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:24.258 -07:00 [INF] Checking cache for key: tenants:smith:by:name:page:1:size:10
+2025-07-11 15:01:24.271 -07:00 [INF] Cached tenants for key: tenants:smith:by:name:page:1:size:10
+2025-07-11 15:01:24.272 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:24.272 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:24.272 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:24.273 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=name - 200 null application/json; charset=utf-8 15.9888ms
+2025-07-11 15:01:27.510 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=name - application/json 184
+2025-07-11 15:01:27.512 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:27.517 -07:00 [INF] Checking cache for key: tenants:smith:by:name:page:1:size:10
+2025-07-11 15:01:27.527 -07:00 [INF] Cache hit for key: tenants:smith:by:name:page:1:size:10
+2025-07-11 15:01:27.528 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:27.529 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:27.532 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:27.534 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=name - 200 null application/json; charset=utf-8 23.5278ms
+2025-07-11 15:01:31.799 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - application/json 184
+2025-07-11 15:01:31.800 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:31.802 -07:00 [INF] Checking cache for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:32.106 -07:00 [INF] Cached tenants for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:32.107 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:32.107 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:32.108 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:32.108 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - 200 null application/json; charset=utf-8 308.5697ms
+2025-07-11 15:01:39.825 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - application/json 184
+2025-07-11 15:01:39.825 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:39.827 -07:00 [INF] Checking cache for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:39.831 -07:00 [INF] Cache hit for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:39.832 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:39.832 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:39.832 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:39.832 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - 200 null application/json; charset=utf-8 7.7987ms
+2025-07-11 15:01:41.290 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - application/json 184
+2025-07-11 15:01:41.291 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:41.292 -07:00 [INF] Checking cache for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:41.298 -07:00 [INF] Cache hit for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:41.299 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:41.299 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:41.300 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:41.301 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - 200 null application/json; charset=utf-8 10.3382ms
+2025-07-11 15:01:47.074 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - application/json 184
+2025-07-11 15:01:47.075 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:47.076 -07:00 [INF] Checking cache for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:47.081 -07:00 [INF] Cache hit for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:47.081 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:47.081 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:47.082 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:47.082 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - 200 null application/json; charset=utf-8 7.6463ms
+2025-07-11 15:01:55.444 -07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - application/json 184
+2025-07-11 15:01:55.444 -07:00 [INF] Executing endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:55.445 -07:00 [INF] Checking cache for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:55.447 -07:00 [INF] Cache hit for key: tenants:smith:by:registeredTo:page:1:size:10
+2025-07-11 15:01:55.447 -07:00 [INF] Setting HTTP status code 200.
+2025-07-11 15:01:55.447 -07:00 [INF] Writing value of type '<>f__AnonymousType0`1' as Json.
+2025-07-11 15:01:55.448 -07:00 [INF] Executed endpoint 'HTTP: GET /api/tenants'
+2025-07-11 15:01:55.448 -07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5157/api/tenants?search=smith&by=registeredTo - 200 null application/json; charset=utf-8 3.9971ms
+2025-07-11 15:02:08.398 -07:00 [INF] Application is shutting down...

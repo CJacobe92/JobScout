@@ -148,12 +148,6 @@
 /home/cjadmin/Projects/JobScout/src/Platform/Api/obj/Debug/net8.0/Api.pdb
 /home/cjadmin/Projects/JobScout/src/Platform/Api/obj/Debug/net8.0/Api.genruntimeconfig.cache
 /home/cjadmin/Projects/JobScout/src/Platform/Api/obj/Debug/net8.0/ref/Api.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Binder.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Serilog.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Serilog.AspNetCore.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Serilog.Extensions.Hosting.dll
@@ -163,8 +157,9 @@
 /home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Serilog.Sinks.Console.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
 /home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Serilog.Sinks.File.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/System.IO.Pipelines.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/System.Text.Encodings.Web.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/System.Text.Json.dll
-/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/MediatR.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/MediatR.Contracts.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/home/cjadmin/Projects/JobScout/src/Platform/Api/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll

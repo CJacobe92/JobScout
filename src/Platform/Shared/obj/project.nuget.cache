@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "5wKxZ4LUqFXDdSf/m6KmrZauXPOf+xtrVy0UkyJNqo6osXaNqKqOaOD19M92EzHWGOF2IgWxIzk0Fml+o26YdQ==",
+  "dgSpecHash": "dpfPlyKib447WKnzcSdyioIcToVXYSUW8L6u/nj/9mNur0hxwl0U1nn7XQAHsa9PtI5jFuoI3zBTVFZ3JFOmkg==",
   "success": true,
   "projectFilePath": "/home/cjadmin/Projects/JobScout/src/Platform/Shared/Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/cjadmin/.nuget/packages/microsoft.entityframeworkcore/8.0.17/microsoft.entityframeworkcore.8.0.17.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.entityframeworkcore.abstractions/8.0.17/microsoft.entityframeworkcore.abstractions.8.0.17.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.entityframeworkcore.analyzers/8.0.17/microsoft.entityframeworkcore.analyzers.8.0.17.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.caching.abstractions/8.0.0/microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.caching.memory/8.0.1/microsoft.extensions.caching.memory.8.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.1/microsoft.extensions.dependencyinjection.8.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.2/microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.logging/8.0.1/microsoft.extensions.logging.8.0.1.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.2/microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.options/8.0.2/microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "/home/cjadmin/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

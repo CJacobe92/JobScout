@@ -1,8 +1,4 @@
 using Api;
-using Application.Tenants.Commands.CreateTenant;
-using Application.Tenants.Queries.GetAllTenants;
-using Application.Tenants.Validators.CreateTenant;
-using Application.Tenants.Validators.GetAllTenants;
 using Domain.Repositories;
 using FluentValidation;
 using Infrastructure.Kafka;
@@ -15,6 +11,7 @@ using Microsoft.Extensions.Options;
 using Shared.SeedWork;
 using StackExchange.Redis;
 using Serilog;
+using Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,15 +31,18 @@ builder.Services.AddResponseCompression(options =>
 });
 
 builder.Host.UseSerilog();
-builder.Services.AddValidatorsFromAssemblyContaining<CreateTenantDtoValidator>();
-builder.Services.AddValidatorsFromAssemblyContaining<GetAllTenantsDtoValidator>();
-builder.Services.AddScoped<CreateTenantHandler>();
-builder.Services.AddScoped<GetAllTenantsHandler>();
+builder.Services.AddValidatorsFromAssemblies(
+    [typeof(TenantApplicationAssemblyMarker).Assembly]
+);
+
 builder.Services.AddScoped<ITenantRepository, TenantRepository>();
 
 builder.Services.Configure<RedisSettings>(
     builder.Configuration.GetSection("Redis"));
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
+    typeof(TenantApplicationAssemblyMarker).Assembly
+));
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 {
